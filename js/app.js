@@ -1,7 +1,7 @@
 /* =========================================================
-   LÓGICA PRINCIPAL Y GENERADOR DE PDF CON MARCA DE AGUA
+   LÓGICA PRINCIPAL CON CAMPO "AUTOR" PARA CANCIONES
    ========================================================= */
-const LS_KEY = "herederosRepertorioData_v3";
+const LS_KEY = "herederosRepertorioData_v4"; // Actualizado a v4 para soportar autores
 const EDIT_PASSWORD = "herederos";
 
 let DATA = null;
@@ -22,122 +22,122 @@ const REPERTORIO_DEFAULT = [
     id:"setA", setLabel:"SET A", genero:"Boleros Románticos", categoria:"romantico",
     ritmo:"Bolero", tempo:"97", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"Mi Compañera", tono:"LA M", letra:"Ven Mujer, regálame", enlace:"", bpm:null},
-      {nombre:"Triunfamos", tono:"la m", letra:"Une tu voz a mi voz", enlace:"", bpm:null},
-      {nombre:"Contigo", tono:"", letra:"Tus besos se llegaron…", enlace:"", bpm:null},
-      {nombre:"El prendedor", tono:"", letra:"En el prendedor, de mi…", enlace:"", bpm:null},
-      {nombre:"Historia de un amor", tono:"", letra:"Ya no estás más a mi lado", enlace:"", bpm:null},
-      {nombre:"Si tu me dices ven", tono:"", letra:"Si tu me dices ven", enlace:"", bpm:null},
-      {nombre:"Novia mía", tono:"", letra:"Esta novia mía, será", enlace:"", bpm:null},
-      {nombre:"Sabor a mí", tono:"", letra:"Tanto tiempo disfrutamos…", enlace:"", bpm:null},
-      {nombre:"Piel Canela", tono:"", letra:"Que se quede el infinito", enlace:"", bpm:null},
-      {nombre:"Te lo pido por favor", tono:"DO M", letra:"Donde esté, hoy y siempre", enlace:"", bpm:null}
+      {nombre:"Mi Compañera", autor:"Trío Los Antares", tono:"LA M", letra:"Ven Mujer, regálame", enlace:"", bpm:null},
+      {nombre:"Triunfamos", autor:"Los Panchos", tono:"la m", letra:"Une tu voz a mi voz", enlace:"", bpm:null},
+      {nombre:"Contigo", autor:"Bebu Silvetti", tono:"", letra:"Tus besos se llegaron…", enlace:"", bpm:null},
+      {nombre:"El prendedor", autor:"Trío Colonial", tono:"", letra:"En el prendedor, de mi…", enlace:"", bpm:null},
+      {nombre:"Historia de un amor", autor:"Carlos Eleta Almarán", tono:"", letra:"Ya no estás más a mi lado", enlace:"", bpm:null},
+      {nombre:"Si tu me dices ven", autor:"Los Panchos", tono:"", letra:"Si tu me dices ven", enlace:"", bpm:null},
+      {nombre:"Novia mía", autor:"Julio Jaramillo", tono:"", letra:"Esta novia mía, será", enlace:"", bpm:null},
+      {nombre:"Sabor a mí", autor:"Álvaro Carrillo", tono:"", letra:"Tanto tiempo disfrutamos…", enlace:"", bpm:null},
+      {nombre:"Piel Canela", autor:"Bobby Capó", tono:"", letra:"Que se quede el infinito", enlace:"", bpm:null},
+      {nombre:"Te lo pido por favor", autor:"Juan Gabriel", tono:"DO M", letra:"Donde esté, hoy y siempre", enlace:"", bpm:null}
     ]
   },
   {
     id:"setB", setLabel:"SET B", genero:"Cumbia", categoria:"bailable",
     ritmo:"Cumbia", tempo:"100", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"Amapola", tono:"fa m", letra:"Baby, baila sola", enlace:"", bpm:null},
-      {nombre:"Ayayay", tono:"fa m", letra:"Soltera, porque todos", enlace:"", bpm:null},
-      {nombre:"Para mirar las estrellas", tono:"", letra:"Para mirar las estrellas", enlace:"", bpm:null},
-      {nombre:"El Aguajal", tono:"mi m", letra:"Si se marchó sin un adiós", enlace:"", bpm:null},
-      {nombre:"Cumbia Chonera", tono:"sol m", letra:"", enlace:"", bpm:null},
-      {nombre:"Llorando se fue", tono:"si m", letra:"Llorando se fue, la que…", enlace:"", bpm:null},
-      {nombre:"Cariñito", tono:"mi m", letra:"Lloro, por quererte", enlace:"pdf/loquito-por-ti.pdf", bpm:null},
-      {nombre:"Cumbia del indio", tono:"sib m", letra:"INSTRUMENTAL", enlace:"", bpm:null},
-      {nombre:"Casarme no", tono:"re m", letra:"Muchachita, vienes tú", enlace:"pdf/loquito-por-ti.pdf", bpm:null},
-      {nombre:"La novia", tono:"", letra:"Quise rezarle a dios", enlace:"", bpm:null},
-      {nombre:"Solo tú", tono:"", letra:"Solo tú, bajo el cielo", enlace:"", bpm:null},
-      {nombre:"Loquito por ti", tono:"sib m", letra:"Loquito por ti, loco loco", enlace:"pdf/loquito-por-ti.pdf", bpm:null}
+      {nombre:"Amapola", autor:"Fulanito", tono:"fa m", letra:"Baby, baila sola", enlace:"", bpm:null},
+      {nombre:"Ayayay", autor:"Don Medardo y sus Player's", tono:"fa m", letra:"Soltera, porque todos", enlace:"", bpm:null},
+      {nombre:"Para mirar las estrellas", autor:"Versión Trío", tono:"", letra:"Para mirar las estrellas", enlace:"", bpm:null},
+      {nombre:"El Aguajal", autor:"Los Palmeras", tono:"mi m", letra:"Si se marchó sin un adiós", enlace:"", bpm:null},
+      {nombre:"Cumbia Chonera", autor:"Tercer Frío", tono:"sol m", letra:"", enlace:"", bpm:null},
+      {nombre:"Llorando se fue", autor:"Los Kjarkas", tono:"si m", letra:"Llorando se fue, la que…", enlace:"", bpm:null},
+      {nombre:"Cariñito", autor:"Los Hijos del Sol", tono:"mi m", letra:"Lloro, por quererte", enlace:"pdf/loquito-por-ti.pdf", bpm:null},
+      {nombre:"Cumbia del indio", autor:"Enrique Delgado", tono:"sib m", letra:"INSTRUMENTAL", enlace:"", bpm:null},
+      {nombre:"Casarme no", autor:"Tradicional", tono:"re m", letra:"Muchachita, vienes tú", enlace:"pdf/loquito-por-ti.pdf", bpm:null},
+      {nombre:"La novia", autor:"Antonio Prieto", tono:"", letra:"Quise rezarle a dios", enlace:"", bpm:null},
+      {nombre:"Solo tú", autor:"Los Visconti", tono:"", letra:"Solo tú, bajo el cielo", enlace:"", bpm:null},
+      {nombre:"Loquito por ti", autor:"Armando Hernández", tono:"sib m", letra:"Loquito por ti, loco loco", enlace:"pdf/loquito-por-ti.pdf", bpm:null}
     ]
   },
   {
     id:"setC", setLabel:"SET C", genero:"Vals Romántico", categoria:"romantico",
     ritmo:"Vals", tempo:"139", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"Felicitaciones", tono:"do m", letra:"En el silencio, de esta noche", enlace:"", bpm:null},
-      {nombre:"Alma, Corazón y Vida", tono:"re m", letra:"Recuerdo aquella vez", enlace:"", bpm:null},
-      {nombre:"Camino de la vida", tono:"si m", letra:"De prisa como el viento", enlace:"", bpm:null},
-      {nombre:"Cariño Bonito", tono:"re m", letra:"Donde se duermen", enlace:"", bpm:null},
-      {nombre:"Alma mía", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Propiedad Privada", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Guayaquileña", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Nuestro Secreto", tono:"", letra:"", enlace:"", bpm:null}
+      {nombre:"Felicitaciones", autor:"Julio Jaramillo", tono:"do m", letra:"En el silencio, de esta noche", enlace:"", bpm:null},
+      {nombre:"Alma, Corazón y Vida", autor:"Luis Abanto Morales", tono:"re m", letra:"Recuerdo aquella vez", enlace:"", bpm:null},
+      {nombre:"Camino de la vida", autor:"Héctor Ochoa", tono:"si m", letra:"De prisa como el viento", enlace:"", bpm:null},
+      {nombre:"Cariño Bonito", autor:"Enrique Ibáñez", tono:"re m", letra:"Donde se duermen", enlace:"", bpm:null},
+      {nombre:"Alma mía", autor:"María Grever", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Propiedad Privada", autor:"Modesta Bor", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Guayaquileña", autor:"Carlos Rubira Infante", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Nuestro Secreto", autor:"Feliciano Brunetti", tono:"", letra:"", enlace:"", bpm:null}
     ]
   },
   {
     id:"setD", setLabel:"SET D", genero:"Bombas", categoria:"bailable",
     ritmo:"Bomba", tempo:"115", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"Negrita Consentida", tono:"la m", letra:"Te conocí me enamoré", enlace:"", bpm:null},
-      {nombre:"El camaleón", tono:"si m", letra:"El camaleón cambia de…", enlace:"", bpm:null},
-      {nombre:"Voy Buscando", tono:"la m", letra:"Voy Buscando, un cariño", enlace:"", bpm:null},
-      {nombre:"Sabor a Miel", tono:"mi m", letra:"Eres tú lo que más quiero", enlace:"", bpm:null},
-      {nombre:"Cuerpo Sirena", tono:"la m", letra:"Solo una noche", enlace:"", bpm:null},
-      {nombre:"Palabras de amor", tono:"la m", letra:"Tan solo quiero escuchar", enlace:"", bpm:null},
-      {nombre:"Ven junto a mi lado", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"El chuchaqui", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Hoy aprendí", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Jamás", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Sentado en un bar", tono:"la m", letra:"Sentado en un bar", enlace:"", bpm:null},
-      {nombre:"Carpuela", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Ay no se puede", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Chucta Carajo", tono:"", letra:"", enlace:"", bpm:null}
+      {nombre:"Negrita Consentida", autor:"Tradicional", tono:"la m", letra:"Te conocí me enamoré", enlace:"", bpm:null},
+      {nombre:"El camaleón", autor:"Banda Pueblo", tono:"si m", letra:"El camaleón cambia de…", enlace:"", bpm:null},
+      {nombre:"Voy Buscando", autor:"Tradicional", tono:"la m", letra:"Voy Buscando, un cariño", enlace:"", bpm:null},
+      {nombre:"Sabor a Miel", autor:"Trío Juvenil", tono:"mi m", letra:"Eres tú lo que más quiero", enlace:"", bpm:null},
+      {nombre:"Cuerpo Sirena", autor:"Tradicional", tono:"la m", letra:"Solo una noche", enlace:"", bpm:null},
+      {nombre:"Palabras de amor", autor:"Tradicional", tono:"la m", letra:"Tan solo quiero escuchar", enlace:"", bpm:null},
+      {nombre:"Ven junto a mi lado", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"El chuchaqui", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Hoy aprendí", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Jamás", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Sentado en un bar", autor:"Tradicional", tono:"la m", letra:"Sentado en un bar", enlace:"", bpm:null},
+      {nombre:"Carpuela", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Ay no se puede", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Chucta Carajo", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null}
     ]
   },
   {
     id:"setE", setLabel:"SET E", genero:"Valses Nostálgicos", categoria:"romantico",
     ritmo:"Vals", tempo:"100", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"Mala sombra", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Mal paso", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Ingratitud", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Regresa", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Yo perdí el corazón", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Ódiame", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Cuando llora mi guitarra", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Ayer y hoy", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Engañada", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Fatalidad", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Extravío", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Reminiscencias", tono:"", letra:"", enlace:"", bpm:null}
+      {nombre:"Mala sombra", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Mal paso", autor:"Luis De Alva", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Ingratitud", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Regresa", autor:"A. Cabral", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Yo perdí el corazón", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Ódiame", autor:"F. Montes", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Cuando llora mi guitarra", autor:"A. Polo Campos", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Ayer y hoy", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Engañada", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Fatalidad", autor:"L. R. Caravedo", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Extravío", autor:"Pedro Espelfín", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Reminiscencias", autor:"Luis Martínez Serrano", tono:"", letra:"", enlace:"", bpm:null}
     ]
   },
   {
     id:"setF", setLabel:"SET F", genero:"San Juanitos", categoria:"bailable",
     ritmo:"San Juanito", tempo:"114", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"Corazón Equivocado", tono:"mi m", letra:"Escogió mi corazón", enlace:"", bpm:null},
-      {nombre:"Pobre corazón", tono:"do m", letra:"Pobre corazón, entristecido", enlace:"", bpm:null},
-      {nombre:"Cantando como yo canto", tono:"do m", letra:"Cantando como yo canto", enlace:"", bpm:null},
-      {nombre:"El transporte", tono:"do m", letra:"ANIMAR", enlace:"", bpm:null},
-      {nombre:"Ñucta llacta", tono:"la m", letra:"Longuita, te quiero yo a vos", enlace:"", bpm:null},
-      {nombre:"El travoltoso", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Mariposita", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Se acabó quien te quería", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"El Chinchinal", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Alitas Quebradas", tono:"", letra:"", enlace:"", bpm:null}
+      {nombre:"Corazón Equivocado", autor:"Tradicional", tono:"mi m", letra:"Escogió mi corazón", enlace:"", bpm:null},
+      {nombre:"Pobre corazón", autor:"Tradicional", tono:"do m", letra:"Pobre corazón, entristecido", enlace:"", bpm:null},
+      {nombre:"Cantando como yo canto", autor:"Tradicional", tono:"do m", letra:"Cantando como yo canto", enlace:"", bpm:null},
+      {nombre:"El transporte", autor:"Tradicional", tono:"do m", letra:"ANIMAR", enlace:"", bpm:null},
+      {nombre:"Ñucta llacta", autor:"Tradicional", tono:"la m", letra:"Longuita, te quiero yo a vos", enlace:"", bpm:null},
+      {nombre:"El travoltoso", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Mariposita", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Se acabó quien te quería", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"El Chinchinal", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Alitas Quebradas", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null}
     ]
   },
   {
     id:"setG", setLabel:"SET G", genero:"Pasillos", categoria:"romantico",
     ritmo:"Pasillo", tempo:"100", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"El Aguacate", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Angél de Luz", tono:"la m", letra:"Ángel de luz, de aromas", enlace:"", bpm:null},
-      {nombre:"17 años", tono:"mi m", letra:"Yo vivía triste", enlace:"", bpm:null},
-      {nombre:"Cantares del Alma", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Te quiero, Te quiero", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Tú y yo", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Acuérdate de mí", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"El alma en los labios", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Faltándome tú", tono:"", letra:"Faltándome tu, mi vida", enlace:"", bpm:null},
-      {nombre:"Por ti llorando", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Amor, Dolor", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Sombras", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Sendas Distintas", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Tu Duda y la Mía", tono:"", letra:"", enlace:"", bpm:null}
+      {nombre:"El Aguacate", autor:"César Guerrero Tamayo", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Angél de Luz", autor:"Enrique Espín Yépez", tono:"la m", letra:"Ángel de luz, de aromas", enlace:"", bpm:null},
+      {nombre:"17 años", autor:"Enrique Ibáñez Mora", tono:"mi m", letra:"Yo vivía triste", enlace:"", bpm:null},
+      {nombre:"Cantares del Alma", autor:"Trinear", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Te quiero, Te quiero", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Tú y yo", autor:"Carlos Brito", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Acuérdate de mí", autor:"Luis A. Calvo", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"El alma en los labios", autor:"Medardo Ángel Silva / Cuco Sánchez", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Faltándome tú", autor:"Manuel Jiménez", tono:"", letra:"Faltándome tu, mi vida", enlace:"", bpm:null},
+      {nombre:"Por ti llorando", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Amor, Dolor", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Sombras", autor:"Rosendo Ruiz Quezada", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Sendas Distintas", autor:"Gonzalo Vera Santos", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Tu Duda y la Mía", autor:"Oswaldo Guayasamín", tono:"", letra:"", enlace:"", bpm:null}
     ]
   },
   {
@@ -159,12 +159,12 @@ const REPERTORIO_DEFAULT = [
     id:"setK", setLabel:"SET K", genero:"Boleros Julio Jaramillo", categoria:"romantico",
     ritmo:"Bolero", tempo:"96", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"Azabache", tono:"", letra:"En el negro azabache", enlace:"", bpm:null},
-      {nombre:"Niégalo todo", tono:"", letra:"No le digas a nadie", enlace:"", bpm:null},
-      {nombre:"Cinco centavitos", tono:"", letra:"Quiero comprarle a la vida", enlace:"", bpm:null},
-      {nombre:"Nuestro Juramento", tono:"", letra:"No puedo verte triste", enlace:"", bpm:null},
-      {nombre:"Rondando tu esquina", tono:"", letra:"Esta noche tengo ganas de", enlace:"", bpm:null},
-      {nombre:"El Pintor", tono:"", letra:"", enlace:"", bpm:null}
+      {nombre:"Azabache", autor:"Enrique Frías", tono:"", letra:"En el negro azabache", enlace:"", bpm:null},
+      {nombre:"Niégalo todo", autor:"Julio Jaramillo", tono:"", letra:"No le digas a nadie", enlace:"", bpm:null},
+      {nombre:"Cinco centavitos", autor:"Héctor Ulloa", tono:"", letra:"Quiero comprarle a la vida", enlace:"", bpm:null},
+      {nombre:"Nuestro Juramento", autor:"Benito de Jesús", tono:"", letra:"No puedo verte triste", enlace:"", bpm:null},
+      {nombre:"Rondando tu esquina", autor:"Abelardo Monterrosa", tono:"", letra:"Esta noche tengo ganas de", enlace:"", bpm:null},
+      {nombre:"El Pintor", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null}
     ]
   },
   {
@@ -176,34 +176,34 @@ const REPERTORIO_DEFAULT = [
     id:"setM", setLabel:"SET M", genero:"Boleros Románticos II", categoria:"romantico",
     ritmo:"Bolero", tempo:"98", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"Mi Compañera", tono:"LA M", letra:"Ven Mujer, regálame", enlace:"", bpm:null},
-      {nombre:"Triunfamos", tono:"la m", letra:"Une tu voz a mi voz", enlace:"", bpm:null},
-      {nombre:"Contigo", tono:"", letra:"Tus besos se llegaron…", enlace:"", bpm:null},
-      {nombre:"El prendedor", tono:"", letra:"En el prendedor, de mi…", enlace:"", bpm:null},
-      {nombre:"Historia de un amor", tono:"", letra:"Ya no estás más a mi lado", enlace:"", bpm:null},
-      {nombre:"Si tu me dices ven", tono:"", letra:"Si tu me dices ven", enlace:"", bpm:null},
-      {nombre:"Novia mía", tono:"", letra:"Esta novia mía, será", enlace:"", bpm:null},
-      {nombre:"Sin ti", tono:"", letra:"Sin ti, no podré vivir jamás", enlace:"", bpm:null},
-      {nombre:"Sabor a mí", tono:"", letra:"Tanto tiempo disfrutamos…", enlace:"", bpm:null},
-      {nombre:"Piel Canela", tono:"", letra:"Que se quede el infinito", enlace:"", bpm:null},
-      {nombre:"El reloj", tono:"", letra:"Reloj, no marques la hora", enlace:"", bpm:null},
-      {nombre:"Te lo pido por favor", tono:"", letra:"", enlace:"", bpm:null}
+      {nombre:"Mi Compañera", autor:"Trío Los Antares", tono:"LA M", letra:"Ven Mujer, regálame", enlace:"", bpm:null},
+      {nombre:"Triunfamos", autor:"Los Panchos", tono:"la m", letra:"Une tu voz a mi voz", enlace:"", bpm:null},
+      {nombre:"Contigo", autor:"Bebu Silvetti", tono:"", letra:"Tus besos se llegaron…", enlace:"", bpm:null},
+      {nombre:"El prendedor", autor:"Trío Colonial", tono:"", letra:"En el prendedor, de mi…", enlace:"", bpm:null},
+      {nombre:"Historia de un amor", autor:"Carlos Eleta Almarán", tono:"", letra:"Ya no estás más a mi lado", enlace:"", bpm:null},
+      {nombre:"Si tu me dices ven", autor:"Los Panchos", tono:"", letra:"Si tu me dices ven", enlace:"", bpm:null},
+      {nombre:"Novia mía", autor:"Julio Jaramillo", tono:"", letra:"Esta novia mía, será", enlace:"", bpm:null},
+      {nombre:"Sin ti", autor:"Pepe Guízar", tono:"", letra:"Sin ti, no podré vivir jamás", enlace:"", bpm:null},
+      {nombre:"Sabor a mí", autor:"Álvaro Carrillo", tono:"", letra:"Tanto tiempo disfrutamos…", enlace:"", bpm:null},
+      {nombre:"Piel Canela", autor:"Bobby Capó", tono:"", letra:"Que se quede el infinito", enlace:"", bpm:null},
+      {nombre:"El reloj", autor:"Roberto Cantoral", tono:"", letra:"Reloj, no marques la hora", enlace:"", bpm:null},
+      {nombre:"Te lo pido por favor", autor:"Juan Gabriel", tono:"", letra:"", enlace:"", bpm:null}
     ]
   },
   {
     id:"setL_cumbias2", setLabel:"SET L", genero:"Cumbias 2", categoria:"bailable",
     ritmo:"Cumbia", tempo:"102", enlaceSetCompleto:"",
     canciones:[
-      {nombre:"La revancha", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Paso fino", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Amor de mis amores", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Te vas", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Me enamore de ti, y que", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Desesperado", tono:"", letra:"Desesperado, desesperado", enlace:"", bpm:null},
-      {nombre:"El Arbolito", tono:"", letra:"Viento tú que te alejas", enlace:"", bpm:null},
-      {nombre:"Baile de la cumbia", tono:"", letra:"Busco una chica como tú", enlace:"", bpm:null},
-      {nombre:"Ojitos Hechiceros", tono:"", letra:"Esos dos ojitos lindos", enlace:"", bpm:null},
-      {nombre:"Flor de un día", tono:"", letra:"No ya no quiero quererte más", enlace:"", bpm:null}
+      {nombre:"La revancha", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Paso fino", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Amor de mis amores", autor:"Agustín Lara", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Te vas", autor:"Américo", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Me enamore de ti, y que", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"Desesperado", autor:"Tradicional", tono:"", letra:"Desesperado, desesperado", enlace:"", bpm:null},
+      {nombre:"El Arbolito", autor:"Enrique Delgado", tono:"", letra:"Viento tú que te alejas", enlace:"", bpm:null},
+      {nombre:"Baile de la cumbia", autor:"Tradicional", tono:"", letra:"Busco una chica como tú", enlace:"", bpm:null},
+      {nombre:"Ojitos Hechiceros", autor:"Tradicional", tono:"", letra:"Esos dos ojitos lindos", enlace:"", bpm:null},
+      {nombre:"Flor de un día", autor:"Tradicional", tono:"", letra:"No ya no quiero quererte más", enlace:"", bpm:null}
     ]
   }
 ];
@@ -499,6 +499,7 @@ function renderCanciones(){
       <div class="checkbox ${checked? 'checked':''}"></div>
       <div class="info">
         <div class="name">${c.nombre}</div>
+        <div style="font-size:12px; color:var(--amber-light); font-style:italic;">${c.autor ? c.autor : "Autor no especificado"}</div>
         ${c.letra ? `<div class="letra">${c.letra}</div>` : ""}
       </div>
       ${c.tono ? `<div class="tono">${c.tono}</div>` : `<div class="tono" style="opacity:.3;">—</div>`}
@@ -544,12 +545,13 @@ function renderCanciones(){
 
 function renderSongForm(g, idx){
   const isNew = idx===null;
-  const c = isNew ? {nombre:"",tono:"",letra:"",enlace:"",bpm:null} : g.canciones[idx];
+  const c = isNew ? {nombre:"",autor:"",tono:"",letra:"",enlace:"",bpm:null} : g.canciones[idx];
   const box = document.createElement('div');
   box.className = "song-form";
   box.innerHTML = `
     <div class="form-title">${isNew? "Nueva canción" : "Editar canción"}</div>
     <label>Nombre<input type="text" class="f-nombre" value="${escapeAttr(c.nombre)}"></label>
+    <label>Autor / Versión<input type="text" class="f-autor" value="${escapeAttr(c.autor)}" placeholder="ej. Los Panchos"></label>
     <label>Tono<input type="text" class="f-tono" value="${escapeAttr(c.tono)}" placeholder="ej. la m"></label>
     <label>Primera línea / Referencia<input type="text" class="f-letra" value="${escapeAttr(c.letra)}"></label>
     <label>Enlace o ruta del PDF (ej. pdf/cancion.pdf)<input type="text" class="f-enlace" value="${escapeAttr(c.enlace)}" placeholder="pdf/nombre.pdf"></label>
@@ -570,6 +572,7 @@ function renderSongForm(g, idx){
     if(!nombre){ toast("El nombre es obligatorio"); return; }
     const nuevo = {
       nombre,
+      autor: box.querySelector('.f-autor').value.trim(),
       tono: box.querySelector('.f-tono').value.trim(),
       letra: box.querySelector('.f-letra').value.trim(),
       enlace: box.querySelector('.f-enlace').value.trim(),
@@ -679,7 +682,7 @@ function renderCart(){
 }
 
 /* =========================================================
-   GENERADOR SECUENCIAL DE PDF CON MARCA DE AGUA (LOGO DE FONDO)
+   GENERADOR DE PDF GENERAL CON AUTOR INCLUIDO Y MARCA DE AGUA
    ========================================================= */
 async function generarPDF(){
   const { jsPDF } = window.jspdf;
@@ -689,7 +692,6 @@ async function generarPDF(){
   const pageH = doc.internal.pageSize.getHeight();
   const pageW = doc.internal.pageSize.getWidth();
 
-  // Intentar agregar el logo como marca de agua en el fondo del PDF general
   try {
     const imgData = await getBase64ImageFromURL("logo.png");
     if(imgData){
@@ -698,11 +700,8 @@ async function generarPDF(){
       const posY = (pageH - imgSize) / 2;
       doc.addImage(imgData, 'PNG', posX, posY, imgSize, imgSize, undefined, 'FAST');
     }
-  } catch(e) {
-    console.log("Marca de agua omitida en PDF general.");
-  }
+  } catch(e) {}
 
-  // Títulos formales en Times New Roman
   doc.setFont("times","bold"); doc.setFontSize(22); doc.setTextColor(20, 20, 20);
   doc.text("Repertorio Trío \"Los Herederos\"", marginX, y);
   y += 24;
@@ -740,9 +739,10 @@ async function generarPDF(){
       const cancion = g.canciones.find(c=>c.nombre===nombre);
       const tono = cancion && cancion.tono ? cancion.tono : "—";
       const bpmVal = cancion && cancion.bpm !== null ? cancion.bpm : (g.tempo || "-");
+      const autorTexto = cancion && cancion.autor ? ` (${cancion.autor})` : "";
       
       doc.setFont("times","bold"); doc.setFontSize(11); doc.setTextColor(30, 30, 30);
-      doc.text(`${i+1}. ${nombre}`, marginX+10, y);
+      doc.text(`${i+1}. ${nombre}${autorTexto}`, marginX+10, y);
       doc.setFont("times","normal"); doc.setFontSize(10); doc.setTextColor(70, 70, 70);
       doc.text(`Tono: ${tono}  ·  BPM: ${bpmVal}`, marginX+280, y);
       y += 18;
@@ -750,10 +750,8 @@ async function generarPDF(){
     y += 12;
   }
 
-  // 1. Descargar Repertorio General
   doc.save("Repertorio-Los-Herederos-Seleccion.pdf");
 
-  // 2. Procesar cada set paso a paso con el asistente flotante
   if(window.PDFLib && setsConMerge.length > 0){
     for(let i = 0; i < setsConMerge.length; i++){
       const item = setsConMerge[i];
@@ -777,7 +775,6 @@ async function generarPDF(){
   location.reload();
 }
 
-// Función auxiliar segura para estampar la marca de agua en el PDF general
 function getBase64ImageFromURL(url) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -787,7 +784,7 @@ function getBase64ImageFromURL(url) {
       canvas.width = img.width;
       canvas.height = img.height;
       const ctx = canvas.getContext("2d");
-      ctx.globalAlpha = 0.12; // Transparencia sutil de marca de agua
+      ctx.globalAlpha = 0.12;
       ctx.drawImage(img, 0, 0);
       resolve(canvas.toDataURL("image/png"));
     };
