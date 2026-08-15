@@ -1,0 +1,918 @@
+[
+  {
+    "id": "setA",
+    "setLabel": "SET A",
+    "genero": "Boleros Románticos",
+    "categoria": "romantico",
+    "ritmo": "Bolero",
+    "tempo": "97",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Mi Compañera",
+        "tono": "LA M",
+        "letra": "Ven Mujer, regálame",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Triunfamos",
+        "tono": "la m",
+        "letra": "Une tu voz a mi voz",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Contigo",
+        "tono": "",
+        "letra": "Tus besos se llegaron…",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El prendedor",
+        "tono": "",
+        "letra": "En el prendedor, de mi…",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Historia de un amor",
+        "tono": "",
+        "letra": "Ya no estás más a mi lado",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Si tu me dices ven",
+        "tono": "",
+        "letra": "Si tu me dices ven",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Novia mía",
+        "tono": "",
+        "letra": "Esta novia mía, será",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Sabor a mí",
+        "tono": "",
+        "letra": "Tanto tiempo disfrutamos…",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Piel Canela",
+        "tono": "",
+        "letra": "Que se quede el infinito",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Te lo pido por favor",
+        "tono": "DO M",
+        "letra": "Donde esté, hoy y siempre",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setB",
+    "setLabel": "SET B",
+    "genero": "Cumbia",
+    "categoria": "bailable",
+    "ritmo": "Cumbia",
+    "tempo": "100",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Amapola",
+        "tono": "fa m",
+        "letra": "Baby, baila sola",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Ayayay",
+        "tono": "fa m",
+        "letra": "Soltera, porque todos",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Para mirar las estrellas",
+        "tono": "",
+        "letra": "Para mirar las estrellas",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El Aguajal",
+        "tono": "mi m",
+        "letra": "Si se marchó sin un adiós",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cumbia Chonera",
+        "tono": "sol m",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Llorando se fue",
+        "tono": "si m",
+        "letra": "Llorando se fue, la que…",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cariñito",
+        "tono": "mi m",
+        "letra": "Lloro, por quererte",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cumbia del indio",
+        "tono": "sib m",
+        "letra": "INSTRUMENTAL",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Casarme no",
+        "tono": "",
+        "letra": "Muchachita, vienes tú",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "La novia",
+        "tono": "",
+        "letra": "Quise rezarle a dios",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Solo tú",
+        "tono": "",
+        "letra": "Solo tú, bajo el cielo",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Loquito por ti",
+        "tono": "sib m",
+        "letra": "Loquito por ti, loco loco",
+        "enlace": "pdf/cumbias/loquito-por-ti.pdf",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setC",
+    "setLabel": "SET C",
+    "genero": "Vals Romántico",
+    "categoria": "romantico",
+    "ritmo": "Vals",
+    "tempo": "139",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Felicitaciones",
+        "tono": "do m",
+        "letra": "En el silencio, de esta noche",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Alma, Corazón y Vida",
+        "tono": "re m",
+        "letra": "Recuerdo aquella vez",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Camino de la vida",
+        "tono": "si m",
+        "letra": "De prisa como el viento",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cariño Bonito",
+        "tono": "re m",
+        "letra": "Donde se duermen",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Alma mía",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Propiedad Privada",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Guayaquileña",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Nuestro Secreto",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setD",
+    "setLabel": "SET D",
+    "genero": "Bombas",
+    "categoria": "bailable",
+    "ritmo": "Bomba",
+    "tempo": "115",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Negrita Consentida",
+        "tono": "la m",
+        "letra": "Te conocí me enamoré",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El camaleón",
+        "tono": "si m",
+        "letra": "El camaleón cambia de…",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Voy Buscando",
+        "tono": "la m",
+        "letra": "Voy Buscando, un cariño",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Sabor a Miel",
+        "tono": "mi m",
+        "letra": "Eres tú lo que más quiero",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cuerpo Sirena",
+        "tono": "la m",
+        "letra": "Solo una noche",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Palabras de amor",
+        "tono": "la m",
+        "letra": "Tan solo quiero escuchar",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Ven junto a mi lado",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El chuchaqui",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Hoy aprendí",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Jamás",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Sentado en un bar",
+        "tono": "la m",
+        "letra": "Sentado en un bar",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Carpuela",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Ay no se puede",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Chucta Carajo",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setE",
+    "setLabel": "SET E",
+    "genero": "Valses Nostálgicos",
+    "categoria": "romantico",
+    "ritmo": "Vals",
+    "tempo": "100",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Mala sombra",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Mal paso",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Ingratitud",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Regresa",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Yo perdí el corazón",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Ódiame",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cuando llora mi guitarra",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Ayer y hoy",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Engañada",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Fatalidad",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Extravío",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Reminiscencias",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setF",
+    "setLabel": "SET F",
+    "genero": "San Juanitos",
+    "categoria": "bailable",
+    "ritmo": "San Juanito",
+    "tempo": "114",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Corazón Equivocado",
+        "tono": "mi m",
+        "letra": "Escogió mi corazón",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Pobre corazón",
+        "tono": "do m",
+        "letra": "Pobre corazón, entristecido",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cantando como yo canto",
+        "tono": "do m",
+        "letra": "Cantando como yo canto",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El transporte",
+        "tono": "do m",
+        "letra": "ANIMAR",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Ñucta llacta",
+        "tono": "la m",
+        "letra": "Longuita, te quiero yo a vos",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El travoltoso",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Mariposita",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Se acabó quien te quería",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El Chinchinal",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Alitas Quebradas",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setG",
+    "setLabel": "SET G",
+    "genero": "Pasillos",
+    "categoria": "romantico",
+    "ritmo": "Pasillo",
+    "tempo": "100",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "El Aguacate",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Angél de Luz",
+        "tono": "la m",
+        "letra": "Ángel de luz, de aromas",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "17 años",
+        "tono": "mi m",
+        "letra": "Yo vivía triste",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cantares del Alma",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Te quiero, Te quiero",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Tú y yo",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Acuérdate de mí",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El alma en los labios",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Faltándome tú",
+        "tono": "",
+        "letra": "Faltándome tu, mi vida",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Por ti llorando",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Amor, Dolor",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Sombras",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Sendas Distintas",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Tu Duda y la Mía",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setH",
+    "setLabel": "SET H",
+    "genero": "Pasacalles",
+    "categoria": "bailable",
+    "ritmo": "Pasacalle",
+    "tempo": "110",
+    "enlaceSetCompleto": "",
+    "canciones": []
+  },
+  {
+    "id": "setI",
+    "setLabel": "SET I",
+    "genero": "Bolero Rockolero",
+    "categoria": "romantico",
+    "ritmo": "Bolero",
+    "tempo": "95",
+    "enlaceSetCompleto": "",
+    "canciones": []
+  },
+  {
+    "id": "setL_albazos",
+    "setLabel": "SET L",
+    "genero": "Albazos / Banda",
+    "categoria": "bailable",
+    "ritmo": "Albazo",
+    "tempo": "120",
+    "enlaceSetCompleto": "",
+    "canciones": []
+  },
+  {
+    "id": "setK",
+    "setLabel": "SET K",
+    "genero": "Boleros Julio Jaramillo",
+    "categoria": "romantico",
+    "ritmo": "Bolero",
+    "tempo": "96",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Azabache",
+        "tono": "",
+        "letra": "En el negro azabache",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Niégalo todo",
+        "tono": "",
+        "letra": "No le digas a nadie",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Cinco centavitos",
+        "tono": "",
+        "letra": "Quiero comprarle a la vida",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Nuestro Juramento",
+        "tono": "",
+        "letra": "No puedo verte triste",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Rondando tu esquina",
+        "tono": "",
+        "letra": "Esta noche tengo ganas de",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El Pintor",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setL_paseitos",
+    "setLabel": "SET L",
+    "genero": "Paseítos",
+    "categoria": "bailable",
+    "ritmo": "Paseíto",
+    "tempo": "115",
+    "enlaceSetCompleto": "",
+    "canciones": []
+  },
+  {
+    "id": "setM",
+    "setLabel": "SET M",
+    "genero": "Boleros Románticos II",
+    "categoria": "romantico",
+    "ritmo": "Bolero",
+    "tempo": "98",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Mi Compañera",
+        "tono": "LA M",
+        "letra": "Ven Mujer, regálame",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Triunfamos",
+        "tono": "la m",
+        "letra": "Une tu voz a mi voz",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Contigo",
+        "tono": "",
+        "letra": "Tus besos se llegaron…",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El prendedor",
+        "tono": "",
+        "letra": "En el prendedor, de mi…",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Historia de un amor",
+        "tono": "",
+        "letra": "Ya no estás más a mi lado",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Si tu me dices ven",
+        "tono": "",
+        "letra": "Si tu me dices ven",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Novia mía",
+        "tono": "",
+        "letra": "Esta novia mía, será",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Sin ti",
+        "tono": "",
+        "letra": "Sin ti, no podré vivir jamás",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Sabor a mí",
+        "tono": "",
+        "letra": "Tanto tiempo disfrutamos…",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Piel Canela",
+        "tono": "",
+        "letra": "Que se quede el infinito",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El reloj",
+        "tono": "",
+        "letra": "Reloj, no marques la hora",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Te lo pido por favor",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "setL_cumbias2",
+    "setLabel": "SET L",
+    "genero": "Cumbias 2",
+    "categoria": "bailable",
+    "ritmo": "Cumbia",
+    "tempo": "102",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "La revancha",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Paso fino",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Amor de mis amores",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Te vas",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Me enamore de ti, y que",
+        "tono": "",
+        "letra": "",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Desesperado",
+        "tono": "",
+        "letra": "Desesperado, desesperado",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El Arbolito",
+        "tono": "",
+        "letra": "Viento tú que te alejas",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Baile de la cumbia",
+        "tono": "",
+        "letra": "Busco una chica como tú",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Ojitos Hechiceros",
+        "tono": "",
+        "letra": "Esos dos ojitos lindos",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Flor de un día",
+        "tono": "",
+        "letra": "No ya no quiero quererte más",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "set_1786773530095",
+    "setLabel": "SET 15",
+    "genero": "Cumbias lentas",
+    "categoria": "bailable",
+    "ritmo": "01 CUMBIAS",
+    "tempo": "105",
+    "enlaceSetCompleto": "",
+    "canciones": []
+  }
+]
