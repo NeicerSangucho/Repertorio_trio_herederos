@@ -73,7 +73,7 @@
       },
       {
         "nombre": "Piel Canela",
-        "autor": "Bobby Capó",
+        "autor": "Los Panchos",
         "tono": "",
         "letra": "Que se quede el infinito",
         "enlace": "",
@@ -89,7 +89,7 @@
       },
       {
         "nombre": "Sin ti",
-        "autor": "Pepe Guízar",
+        "autor": "Los Panchos",
         "tono": "",
         "letra": "Sin ti, no podré vivir jamás",
         "enlace": "",
@@ -97,7 +97,7 @@
       },
       {
         "nombre": "El reloj",
-        "autor": "Roberto Cantoral",
+        "autor": "Los Panchos",
         "tono": "",
         "letra": "Reloj, no marques la hora",
         "enlace": "",
@@ -105,7 +105,7 @@
       },
       {
         "nombre": "Azabache",
-        "autor": "Enrique Frías",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "En el negro azabache",
         "enlace": "",
@@ -121,7 +121,7 @@
       },
       {
         "nombre": "Nuestro Juramento",
-        "autor": "Benito de Jesús",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "No puedo verte triste",
         "enlace": "",
@@ -129,7 +129,7 @@
       },
       {
         "nombre": "Rondando tu esquina",
-        "autor": "Abelardo Monterrosa",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "Esta noche tengo ganas de",
         "enlace": "",
@@ -147,7 +147,7 @@
     "canciones": [
       {
         "nombre": "Amapola",
-        "autor": "Fulanito",
+        "autor": "Papaya Dada",
         "tono": "fa m",
         "letra": "Baby, baila sola",
         "enlace": "",
@@ -163,7 +163,7 @@
       },
       {
         "nombre": "Para mirar las estrellas",
-        "autor": "Versión Trío",
+        "autor": "Papaya Dada & Don Medardo y sus Player's",
         "tono": "",
         "letra": "Para mirar las estrellas",
         "enlace": "",
@@ -171,7 +171,7 @@
       },
       {
         "nombre": "El Aguajal",
-        "autor": "Los Palmeras",
+        "autor": "Don Medardo y sus Player's",
         "tono": "mi m",
         "letra": "Si se marchó sin un adiós",
         "enlace": "",
@@ -179,15 +179,15 @@
       },
       {
         "nombre": "Cumbia Chonera",
-        "autor": "Tercer Frío",
+        "autor": "Don Medardo y sus Player's",
         "tono": "sol m",
-        "letra": "",
+        "letra": "Esta cumbia chonera, yo la quiero...",
         "enlace": "",
         "bpm": null
       },
       {
         "nombre": "Llorando se fue",
-        "autor": "Los Kjarkas",
+        "autor": "Don Medardo y sus Player's",
         "tono": "si m",
         "letra": "Llorando se fue, la que…",
         "enlace": "",
@@ -195,15 +195,15 @@
       },
       {
         "nombre": "Cariñito",
-        "autor": "Los Hijos del Sol",
+        "autor": "Cumbancheros Orquesta",
         "tono": "mi m",
         "letra": "Lloro, por quererte",
-        "enlace": "pdf/cumbia/carinito.pdf",
+        "enlace": "",
         "bpm": null
       },
       {
         "nombre": "Cumbia del indio",
-        "autor": "Enrique Delgado",
+        "autor": "Los Titos",
         "tono": "sib m",
         "letra": "INSTRUMENTAL",
         "enlace": "",
@@ -211,7 +211,7 @@
       },
       {
         "nombre": "Casarme no",
-        "autor": "Tradicional",
+        "autor": "Don Medardo y sus Player's",
         "tono": "re m",
         "letra": "Muchachita, vienes tú",
         "enlace": "",
@@ -219,7 +219,7 @@
       },
       {
         "nombre": "La novia",
-        "autor": "Antonio Prieto",
+        "autor": "Don Medardo y sus Player's",
         "tono": "",
         "letra": "Quise rezarle a dios",
         "enlace": "",
@@ -227,7 +227,7 @@
       },
       {
         "nombre": "Solo tú",
-        "autor": "Los Visconti",
+        "autor": "Don Medardo y sus Player's",
         "tono": "",
         "letra": "Solo tú, bajo el cielo",
         "enlace": "",
@@ -235,7 +235,7 @@
       },
       {
         "nombre": "Loquito por ti",
-        "autor": "Armando Hernández",
+        "autor": "Don Medardo y sus Player's",
         "tono": "sib m",
         "letra": "Loquito por ti, loco loco",
         "enlace": "pdf/cumbia/loquito-por-ti.pdf",
@@ -261,7 +261,7 @@
       },
       {
         "nombre": "Alma, Corazón y Vida",
-        "autor": "Luis Abanto Morales",
+        "autor": "Los Panchos",
         "tono": "re m",
         "letra": "Recuerdo aquella vez",
         "enlace": "",
@@ -269,7 +269,7 @@
       },
       {
         "nombre": "Camino de la vida",
-        "autor": "Héctor Ochoa",
+        "autor": "Trío Los Antares",
         "tono": "si m",
         "letra": "De prisa como el viento",
         "enlace": "",
@@ -277,7 +277,7 @@
       },
       {
         "nombre": "Cariño Bonito",
-        "autor": "Enrique Ibáñez",
+        "autor": "Hermanos Nuñez",
         "tono": "re m",
         "letra": "Donde se duermen",
         "enlace": "",
@@ -285,7 +285,7 @@
       },
       {
         "nombre": "Alma mía",
-        "autor": "María Grever",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -293,7 +293,7 @@
       },
       {
         "nombre": "Propiedad Privada",
-        "autor": "Modesta Bor",
+        "autor": "Eva Ayllón",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -301,7 +301,7 @@
       },
       {
         "nombre": "Guayaquileña",
-        "autor": "Carlos Rubira Infante",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -309,7 +309,7 @@
       },
       {
         "nombre": "Nuestro Secreto",
-        "autor": "Feliciano Brunetti",
+        "autor": "Paulina Tamayo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -327,7 +327,7 @@
     "canciones": [
       {
         "nombre": "Negrita Consentida",
-        "autor": "Tradicional",
+        "autor": "Marcelo Bedoya",
         "tono": "la m",
         "letra": "Te conocí me enamoré",
         "enlace": "",
@@ -335,15 +335,15 @@
       },
       {
         "nombre": "El camaleón",
-        "autor": "Banda Pueblo",
+        "autor": "Widinson",
         "tono": "si m",
         "letra": "El camaleón cambia de…",
         "enlace": "",
         "bpm": null
       },
       {
-        "nombre": "Voy Buscando",
-        "autor": "Tradicional",
+        "nombre": "Buscando un Cariño",
+        "autor": "Paulina Tamayo",
         "tono": "la m",
         "letra": "Voy Buscando, un cariño",
         "enlace": "",
@@ -351,7 +351,7 @@
       },
       {
         "nombre": "Sabor a Miel",
-        "autor": "Trío Juvenil",
+        "autor": "Segundo Rosero",
         "tono": "mi m",
         "letra": "Eres tú lo que más quiero",
         "enlace": "",
@@ -359,7 +359,7 @@
       },
       {
         "nombre": "Cuerpo Sirena",
-        "autor": "Tradicional",
+        "autor": "Marcelo Bedoya",
         "tono": "la m",
         "letra": "Solo una noche",
         "enlace": "",
@@ -367,23 +367,23 @@
       },
       {
         "nombre": "Palabras de amor",
-        "autor": "Tradicional",
-        "tono": "la m",
+        "autor": "Normita Navarro",
+        "tono": "si m",
         "letra": "Tan solo quiero escuchar",
         "enlace": "",
         "bpm": null
       },
       {
         "nombre": "Ven junto a mi lado",
-        "autor": "Tradicional",
-        "tono": "",
-        "letra": "",
+        "autor": "Los Garles",
+        "tono": "si m",
+        "letra": "Se me parte el alma sin tu amor",
         "enlace": "",
         "bpm": null
       },
       {
         "nombre": "El chuchaqui",
-        "autor": "Tradicional",
+        "autor": "Marabú",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -391,7 +391,7 @@
       },
       {
         "nombre": "Hoy aprendí",
-        "autor": "Tradicional",
+        "autor": "Marabú",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -399,7 +399,7 @@
       },
       {
         "nombre": "Jamás",
-        "autor": "Tradicional",
+        "autor": "Los Garles",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -407,7 +407,7 @@
       },
       {
         "nombre": "Sentado en un bar",
-        "autor": "Tradicional",
+        "autor": "Cecy Narvaez",
         "tono": "la m",
         "letra": "Sentado en un bar",
         "enlace": "",
@@ -415,7 +415,7 @@
       },
       {
         "nombre": "Carpuela",
-        "autor": "Tradicional",
+        "autor": "Widinson",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -423,7 +423,7 @@
       },
       {
         "nombre": "Ay no se puede",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -431,7 +431,7 @@
       },
       {
         "nombre": "Chucta Carajo",
-        "autor": "Tradicional",
+        "autor": "Marcelo Bedoya",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -449,7 +449,7 @@
     "canciones": [
       {
         "nombre": "Mala sombra",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -457,7 +457,7 @@
       },
       {
         "nombre": "Mal paso",
-        "autor": "Luis De Alva",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -465,7 +465,7 @@
       },
       {
         "nombre": "Ingratitud",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -473,7 +473,7 @@
       },
       {
         "nombre": "Regresa",
-        "autor": "A. Cabral",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -481,7 +481,7 @@
       },
       {
         "nombre": "Yo perdí el corazón",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -489,7 +489,7 @@
       },
       {
         "nombre": "Ódiame",
-        "autor": "F. Montes",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -497,7 +497,7 @@
       },
       {
         "nombre": "Cuando llora mi guitarra",
-        "autor": "A. Polo Campos",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -505,7 +505,7 @@
       },
       {
         "nombre": "Ayer y hoy",
-        "autor": "Tradicional",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -513,7 +513,7 @@
       },
       {
         "nombre": "Engañada",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -521,7 +521,7 @@
       },
       {
         "nombre": "Fatalidad",
-        "autor": "L. R. Caravedo",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -529,7 +529,7 @@
       },
       {
         "nombre": "Extravío",
-        "autor": "Pedro Espelfín",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -537,7 +537,7 @@
       },
       {
         "nombre": "Reminiscencias",
-        "autor": "Luis Martínez Serrano",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -555,7 +555,7 @@
     "canciones": [
       {
         "nombre": "Corazón Equivocado",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "mi m",
         "letra": "Escogió mi corazón",
         "enlace": "",
@@ -563,7 +563,7 @@
       },
       {
         "nombre": "Pobre corazón",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "do m",
         "letra": "Pobre corazón, entristecido",
         "enlace": "",
@@ -571,7 +571,7 @@
       },
       {
         "nombre": "Cantando como yo canto",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "do m",
         "letra": "Cantando como yo canto",
         "enlace": "",
@@ -579,7 +579,7 @@
       },
       {
         "nombre": "El transporte",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "do m",
         "letra": "ANIMAR",
         "enlace": "",
@@ -587,7 +587,7 @@
       },
       {
         "nombre": "Ñucta llacta",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "la m",
         "letra": "Longuita, te quiero yo a vos",
         "enlace": "",
@@ -595,7 +595,7 @@
       },
       {
         "nombre": "El travoltoso",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -603,7 +603,7 @@
       },
       {
         "nombre": "Mariposita",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -611,7 +611,7 @@
       },
       {
         "nombre": "Se acabó quien te quería",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -619,7 +619,7 @@
       },
       {
         "nombre": "El Chinchinal",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -627,7 +627,7 @@
       },
       {
         "nombre": "Alitas Quebradas",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -645,15 +645,15 @@
     "canciones": [
       {
         "nombre": "El Aguacate",
-        "autor": "César Guerrero Tamayo",
+        "autor": "",
         "tono": "",
-        "letra": "",
+        "letra": "Tu eres mi amor",
         "enlace": "",
         "bpm": null
       },
       {
         "nombre": "Angél de Luz",
-        "autor": "Enrique Espín Yépez",
+        "autor": "",
         "tono": "la m",
         "letra": "Ángel de luz, de aromas",
         "enlace": "",
@@ -661,7 +661,7 @@
       },
       {
         "nombre": "17 años",
-        "autor": "Enrique Ibáñez Mora",
+        "autor": "Segundo Rosero",
         "tono": "mi m",
         "letra": "Yo vivía triste",
         "enlace": "",
@@ -669,7 +669,7 @@
       },
       {
         "nombre": "Cantares del Alma",
-        "autor": "Trinear",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -677,7 +677,7 @@
       },
       {
         "nombre": "Te quiero, Te quiero",
-        "autor": "Tradicional",
+        "autor": "Segundo Rosero",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -685,7 +685,7 @@
       },
       {
         "nombre": "Tú y yo",
-        "autor": "Carlos Brito",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -693,7 +693,7 @@
       },
       {
         "nombre": "Acuérdate de mí",
-        "autor": "Luis A. Calvo",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -701,7 +701,7 @@
       },
       {
         "nombre": "El alma en los labios",
-        "autor": "Medardo Ángel Silva",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -709,15 +709,15 @@
       },
       {
         "nombre": "Faltándome tú",
-        "autor": "Manuel Jiménez",
+        "autor": "",
         "tono": "",
-        "letra": "Faltándome tu, mi vida",
+        "letra": "Faltándome tu, mi vida se entristece",
         "enlace": "",
         "bpm": null
       },
       {
         "nombre": "Por ti llorando",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -725,7 +725,7 @@
       },
       {
         "nombre": "Amor, Dolor",
-        "autor": "Tradicional",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -733,7 +733,7 @@
       },
       {
         "nombre": "Sombras",
-        "autor": "Rosendo Ruiz Quezada",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -741,7 +741,7 @@
       },
       {
         "nombre": "Sendas Distintas",
-        "autor": "Gonzalo Vera Santos",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -749,7 +749,7 @@
       },
       {
         "nombre": "Tu Duda y la Mía",
-        "autor": "Oswaldo Guayasamín",
+        "autor": "",
         "tono": "",
         "letra": "",
         "enlace": "",
