@@ -91,6 +91,7 @@
     "canciones": [
       {
         "nombre": "Amapola",
+        "autor": "Papaya Dada",
         "tono": "fa m",
         "letra": "Baby, baila sola",
         "enlace": "",
@@ -112,6 +113,7 @@
       },
       {
         "nombre": "El Aguajal",
+        "autor": "Medardo y sus Players",
         "tono": "mi m",
         "letra": "Si se marchó sin un adiós",
         "enlace": "",
