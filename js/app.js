@@ -1,7 +1,7 @@
 /* =========================================================
-   LÓGICA PRINCIPAL SIN ETIQUETAS DE SETS (GÉNERO, RITMO Y BPM)
+   LÓGICA PRINCIPAL CON EDICIÓN DE NOMBRE DE GÉNERO Y AUTOR
    ========================================================= */
-const LS_KEY = "herederosRepertorioData_v5";
+const LS_KEY = "herederosRepertorioData_v6";
 const EDIT_PASSWORD = "herederos";
 
 let DATA = null;
@@ -613,7 +613,8 @@ function renderSetForm(g){
   const box = document.createElement('div');
   box.className = "song-form";
   box.innerHTML = `
-    <div class="form-title">Editar configuración general — ${g.genero}</div>
+    <div class="form-title">Editar configuración general del género</div>
+    <label>Nombre del género (ej. Cumbias, Bolero Romántico)<input type="text" class="s-genero" value="${escapeAttr(g.genero)}"></label>
     <label>Ritmo (ej. Cumbia, Bolero, Vals)<input type="text" class="s-ritmo" value="${escapeAttr(g.ritmo)}"></label>
     <label>BPM general del género (por defecto)<input type="number" class="s-tempo" value="${escapeAttr(g.tempo)}" placeholder="100"></label>
     <div class="form-actions">
@@ -622,11 +623,12 @@ function renderSetForm(g){
     </div>
   `;
   box.querySelector('.sv').onclick = ()=>{
+    g.genero = box.querySelector('.s-genero').value.trim() || g.genero;
     g.ritmo = box.querySelector('.s-ritmo').value.trim();
     g.tempo = box.querySelector('.s-tempo').value.trim();
     saveLocal();
     state.editingSet = false;
-    toast("Configuración actualizada ✓");
+    toast("Género actualizado ✓");
     render();
   };
   box.querySelector('.cn').onclick = ()=>{ state.editingSet=false; render(); };
@@ -680,7 +682,7 @@ function renderCart(){
 }
 
 /* =========================================================
-   GENERADOR DE PDF GENERAL SIN ETIQUETAS DE SETS
+   GENERADOR DE PDF GENERAL LIMPIO (SIN SET A, SET B...)
    ========================================================= */
 async function generarPDF(){
   const { jsPDF } = window.jspdf;
@@ -714,7 +716,7 @@ async function generarPDF(){
     const g = getGenero(setId);
     if(y > pageH - 100){ doc.addPage(); y = 60; }
 
-    // Título del género sin etiquetas de Set
+    // Título limpio solo con el nombre del género
     doc.setFont("times","bold"); doc.setFontSize(15); doc.setTextColor(20, 20, 20);
     doc.text(`${g.genero}`, marginX, y);
     y += 18;
