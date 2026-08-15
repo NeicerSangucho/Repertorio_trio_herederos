@@ -1,7 +1,7 @@
 /* =========================================================
-   LÓGICA PRINCIPAL CON CAMPO "AUTOR" PARA CANCIONES
+   LÓGICA PRINCIPAL SIN ETIQUETAS DE SETS (GÉNERO, RITMO Y BPM)
    ========================================================= */
-const LS_KEY = "herederosRepertorioData_v4"; // Actualizado a v4 para soportar autores
+const LS_KEY = "herederosRepertorioData_v5";
 const EDIT_PASSWORD = "herederos";
 
 let DATA = null;
@@ -19,7 +19,7 @@ const CATEGORIAS = {
 
 const REPERTORIO_DEFAULT = [
   {
-    id:"setA", setLabel:"SET A", genero:"Boleros Románticos", categoria:"romantico",
+    id:"setA", genero:"Boleros Románticos", categoria:"romantico",
     ritmo:"Bolero", tempo:"97", enlaceSetCompleto:"",
     canciones:[
       {nombre:"Mi Compañera", autor:"Trío Los Antares", tono:"LA M", letra:"Ven Mujer, regálame", enlace:"", bpm:null},
@@ -35,7 +35,7 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setB", setLabel:"SET B", genero:"Cumbia", categoria:"bailable",
+    id:"setB", genero:"Cumbia", categoria:"bailable",
     ritmo:"Cumbia", tempo:"100", enlaceSetCompleto:"",
     canciones:[
       {nombre:"Amapola", autor:"Fulanito", tono:"fa m", letra:"Baby, baila sola", enlace:"", bpm:null},
@@ -53,7 +53,7 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setC", setLabel:"SET C", genero:"Vals Romántico", categoria:"romantico",
+    id:"setC", genero:"Vals Romántico", categoria:"romantico",
     ritmo:"Vals", tempo:"139", enlaceSetCompleto:"",
     canciones:[
       {nombre:"Felicitaciones", autor:"Julio Jaramillo", tono:"do m", letra:"En el silencio, de esta noche", enlace:"", bpm:null},
@@ -67,7 +67,7 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setD", setLabel:"SET D", genero:"Bombas", categoria:"bailable",
+    id:"setD", genero:"Bombas", categoria:"bailable",
     ritmo:"Bomba", tempo:"115", enlaceSetCompleto:"",
     canciones:[
       {nombre:"Negrita Consentida", autor:"Tradicional", tono:"la m", letra:"Te conocí me enamoré", enlace:"", bpm:null},
@@ -87,7 +87,7 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setE", setLabel:"SET E", genero:"Valses Nostálgicos", categoria:"romantico",
+    id:"setE", genero:"Valses Nostálgicos", categoria:"romantico",
     ritmo:"Vals", tempo:"100", enlaceSetCompleto:"",
     canciones:[
       {nombre:"Mala sombra", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
@@ -105,7 +105,7 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setF", setLabel:"SET F", genero:"San Juanitos", categoria:"bailable",
+    id:"setF", genero:"San Juanitos", categoria:"bailable",
     ritmo:"San Juanito", tempo:"114", enlaceSetCompleto:"",
     canciones:[
       {nombre:"Corazón Equivocado", autor:"Tradicional", tono:"mi m", letra:"Escogió mi corazón", enlace:"", bpm:null},
@@ -121,7 +121,7 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setG", setLabel:"SET G", genero:"Pasillos", categoria:"romantico",
+    id:"setG", genero:"Pasillos", categoria:"romantico",
     ritmo:"Pasillo", tempo:"100", enlaceSetCompleto:"",
     canciones:[
       {nombre:"El Aguacate", autor:"César Guerrero Tamayo", tono:"", letra:"", enlace:"", bpm:null},
@@ -131,7 +131,7 @@ const REPERTORIO_DEFAULT = [
       {nombre:"Te quiero, Te quiero", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
       {nombre:"Tú y yo", autor:"Carlos Brito", tono:"", letra:"", enlace:"", bpm:null},
       {nombre:"Acuérdate de mí", autor:"Luis A. Calvo", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"El alma en los labios", autor:"Medardo Ángel Silva / Cuco Sánchez", tono:"", letra:"", enlace:"", bpm:null},
+      {nombre:"El alma en los labios", autor:"Medardo Ángel Silva", tono:"", letra:"", enlace:"", bpm:null},
       {nombre:"Faltándome tú", autor:"Manuel Jiménez", tono:"", letra:"Faltándome tu, mi vida", enlace:"", bpm:null},
       {nombre:"Por ti llorando", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
       {nombre:"Amor, Dolor", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
@@ -141,22 +141,22 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setH", setLabel:"SET H", genero:"Pasacalles", categoria:"bailable",
+    id:"setH", genero:"Pasacalles", categoria:"bailable",
     ritmo:"Pasacalle", tempo:"110", enlaceSetCompleto:"",
     canciones:[]
   },
   {
-    id:"setI", setLabel:"SET I", genero:"Bolero Rockolero", categoria:"romantico",
+    id:"setI", genero:"Bolero Rockolero", categoria:"romantico",
     ritmo:"Bolero", tempo:"95", enlaceSetCompleto:"",
     canciones:[]
   },
   {
-    id:"setL_albazos", setLabel:"SET L", genero:"Albazos / Banda", categoria:"bailable",
+    id:"setL_albazos", genero:"Albazos / Banda", categoria:"bailable",
     ritmo:"Albazo", tempo:"120", enlaceSetCompleto:"",
     canciones:[]
   },
   {
-    id:"setK", setLabel:"SET K", genero:"Boleros Julio Jaramillo", categoria:"romantico",
+    id:"setK", genero:"Boleros Julio Jaramillo", categoria:"romantico",
     ritmo:"Bolero", tempo:"96", enlaceSetCompleto:"",
     canciones:[
       {nombre:"Azabache", autor:"Enrique Frías", tono:"", letra:"En el negro azabache", enlace:"", bpm:null},
@@ -168,12 +168,12 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setL_paseitos", setLabel:"SET L", genero:"Paseítos", categoria:"bailable",
+    id:"setL_paseitos", genero:"Paseítos", categoria:"bailable",
     ritmo:"Paseíto", tempo:"115", enlaceSetCompleto:"",
     canciones:[]
   },
   {
-    id:"setM", setLabel:"SET M", genero:"Boleros Románticos II", categoria:"romantico",
+    id:"setM", genero:"Boleros Románticos II", categoria:"romantico",
     ritmo:"Bolero", tempo:"98", enlaceSetCompleto:"",
     canciones:[
       {nombre:"Mi Compañera", autor:"Trío Los Antares", tono:"LA M", letra:"Ven Mujer, regálame", enlace:"", bpm:null},
@@ -191,7 +191,7 @@ const REPERTORIO_DEFAULT = [
     ]
   },
   {
-    id:"setL_cumbias2", setLabel:"SET L", genero:"Cumbias 2", categoria:"bailable",
+    id:"setL_cumbias2", genero:"Cumbias 2", categoria:"bailable",
     ritmo:"Cumbia", tempo:"102", enlaceSetCompleto:"",
     canciones:[
       {nombre:"La revancha", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
@@ -224,7 +224,6 @@ function getGenero(id){ return DATA.find(g=>g.id===id); }
 function escapeAttr(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
 function slug(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""); }
 
-// Asistente visual paso a paso
 function mostrarAsistenteDescarga(texto, textoBoton){
   return new Promise((resolve) => {
     let modal = document.getElementById('modalDescarga');
@@ -392,8 +391,8 @@ function renderGeneros(){
       if(gName){
         const newId = "set_" + Date.now();
         DATA.push({
-          id: newId, setLabel: "SET " + (DATA.length + 1), genero: gName,
-          categoria: state.categoria, ritmo: "", tempo: "100", enlaceSetCompleto: "", canciones: []
+          id: newId, genero: gName, categoria: state.categoria, 
+          ritmo: "", tempo: "100", enlaceSetCompleto: "", canciones: []
         });
         saveLocal(); render();
         toast("Género creado ✓");
@@ -413,7 +412,7 @@ function renderGeneros(){
     card.className = "genre-card" + (g.canciones.length===0 ? " empty" : "");
     card.innerHTML = `
       ${chosen? `<div class="badge">${chosen} elegidas</div>`:""}
-      <div class="set-label">${g.setLabel}${g.ritmo? " · "+g.ritmo:""}</div>
+      <div class="set-label">${g.ritmo ? "Ritmo: "+g.ritmo : "Género musical"}</div>
       <h3>${g.genero}</h3>
       <div class="meta">${g.canciones.length} canciones${g.tempo? " · "+g.tempo+" BPM":""}</div>
     `;
@@ -458,7 +457,7 @@ function renderCanciones(){
   if(editMode){
     const editSetBtn = document.createElement('button');
     editSetBtn.className = "btn btn-ghost btn-sm";
-    editSetBtn.textContent = "✎ Editar set";
+    editSetBtn.textContent = "✎ Editar género";
     editSetBtn.onclick = ()=>{ state.editingSet = !state.editingSet; render(); };
     rightActions.appendChild(editSetBtn);
   }
@@ -470,16 +469,15 @@ function renderCanciones(){
   const bar = document.createElement('div');
   bar.className = "song-meta-bar";
   bar.innerHTML = `
-    <span class="pill">${g.setLabel}</span>
-    ${g.ritmo? `<span class="pill">${g.ritmo}</span>`:""}
-    ${g.tempo? `<span class="pill">BPM Set: ${g.tempo}</span>`:""}
+    ${g.ritmo? `<span class="pill">Ritmo: ${g.ritmo}</span>`:""}
+    ${g.tempo? `<span class="pill">BPM: ${g.tempo}</span>`:""}
   `;
   wrap.appendChild(bar);
 
   if(!g.canciones.length && !editMode){
     const empty = document.createElement('div');
     empty.className = "empty-state";
-    empty.innerHTML = `Aún no hay canciones cargadas en este set.`;
+    empty.innerHTML = `Aún no hay canciones cargadas en este género.`;
     wrap.appendChild(empty);
     return wrap;
   }
@@ -524,7 +522,7 @@ function renderCanciones(){
       const addBtn = document.createElement('button');
       addBtn.className = "btn btn-ghost";
       addBtn.style.marginTop = "6px";
-      addBtn.textContent = "+ Añadir canción a este set";
+      addBtn.textContent = "+ Añadir canción a este género";
       addBtn.onclick = ()=>{ state.editingSong = {setId:g.id, idx:null}; render(); };
       wrap.appendChild(addBtn);
     }
@@ -555,7 +553,7 @@ function renderSongForm(g, idx){
     <label>Tono<input type="text" class="f-tono" value="${escapeAttr(c.tono)}" placeholder="ej. la m"></label>
     <label>Primera línea / Referencia<input type="text" class="f-letra" value="${escapeAttr(c.letra)}"></label>
     <label>Enlace o ruta del PDF (ej. pdf/cancion.pdf)<input type="text" class="f-enlace" value="${escapeAttr(c.enlace)}" placeholder="pdf/nombre.pdf"></label>
-    <label class="bpm-row"><input type="checkbox" class="f-bpm-default" ${c.bpm===null ? "checked" : ""}> Usar BPM automático del set (${g.tempo||"100"})</label>
+    <label class="bpm-row"><input type="checkbox" class="f-bpm-default" ${c.bpm===null ? "checked" : ""}> Usar BPM automático del género (${g.tempo||"100"})</label>
     <label class="f-bpm-wrap" style="${c.bpm!==null ? "":"display:none;"}">BPM personalizado<input type="number" class="f-bpm" value="${c.bpm!==null?c.bpm:''}" min="20" max="300"></label>
     <div class="form-actions">
       <button type="button" class="btn btn-primary btn-sm f-save">Guardar</button>
@@ -615,9 +613,9 @@ function renderSetForm(g){
   const box = document.createElement('div');
   box.className = "song-form";
   box.innerHTML = `
-    <div class="form-title">Editar configuración general del set — ${g.genero}</div>
-    <label>Ritmo<input type="text" class="s-ritmo" value="${escapeAttr(g.ritmo)}"></label>
-    <label>BPM general del set (por defecto)<input type="number" class="s-tempo" value="${escapeAttr(g.tempo)}" placeholder="100"></label>
+    <div class="form-title">Editar configuración general — ${g.genero}</div>
+    <label>Ritmo (ej. Cumbia, Bolero, Vals)<input type="text" class="s-ritmo" value="${escapeAttr(g.ritmo)}"></label>
+    <label>BPM general del género (por defecto)<input type="number" class="s-tempo" value="${escapeAttr(g.tempo)}" placeholder="100"></label>
     <div class="form-actions">
       <button type="button" class="btn btn-primary btn-sm sv">Guardar</button>
       <button type="button" class="btn btn-ghost btn-sm cn">Cancelar</button>
@@ -628,7 +626,7 @@ function renderSetForm(g){
     g.tempo = box.querySelector('.s-tempo').value.trim();
     saveLocal();
     state.editingSet = false;
-    toast("Set actualizado ✓");
+    toast("Configuración actualizada ✓");
     render();
   };
   box.querySelector('.cn').onclick = ()=>{ state.editingSet=false; render(); };
@@ -682,7 +680,7 @@ function renderCart(){
 }
 
 /* =========================================================
-   GENERADOR DE PDF GENERAL CON AUTOR INCLUIDO Y MARCA DE AGUA
+   GENERADOR DE PDF GENERAL SIN ETIQUETAS DE SETS
    ========================================================= */
 async function generarPDF(){
   const { jsPDF } = window.jspdf;
@@ -716,12 +714,13 @@ async function generarPDF(){
     const g = getGenero(setId);
     if(y > pageH - 100){ doc.addPage(); y = 60; }
 
+    // Título del género sin etiquetas de Set
     doc.setFont("times","bold"); doc.setFontSize(15); doc.setTextColor(20, 20, 20);
-    doc.text(`${g.genero} (${g.setLabel})`, marginX, y);
+    doc.text(`${g.genero}`, marginX, y);
     y += 18;
 
     doc.setFont("times","italic"); doc.setFontSize(10); doc.setTextColor(80, 80, 80);
-    const metaLine = [g.ritmo, g.tempo ? g.tempo+" BPM":""].filter(Boolean).join("  ·  ");
+    const metaLine = [g.ritmo ? `Ritmo: ${g.ritmo}` : "", g.tempo ? `BPM: ${g.tempo}` : ""].filter(Boolean).join("  ·  ");
     if(metaLine){ doc.text(metaLine, marginX, y); y += 15; }
     y += 4;
 
@@ -758,8 +757,8 @@ async function generarPDF(){
       const esUltimoSet = (i === setsConMerge.length - 1);
 
       await mostrarAsistenteDescarga(
-        `📥 Set listo para descargar: <b>${item.g.genero}</b><br><span style="font-size:12px; color:#666;">(Set ${i + 1} de ${setsConMerge.length})</span>`,
-        esUltimoSet ? "✔ Descargar este último set" : "Siguiente descarga ➔"
+        `📥 Archivo combinado listo para descargar: <b>${item.g.genero}</b><br><span style="font-size:12px; color:#666;">(Elemento ${i + 1} de ${setsConMerge.length})</span>`,
+        esUltimoSet ? "✔ Descargar este último archivo" : "Siguiente descarga ➔"
       );
 
       await mergeSetPDF(item.g, item.nombres);

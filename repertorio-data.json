@@ -1,7 +1,6 @@
 [
   {
     "id": "setA",
-    "setLabel": "SET A",
     "genero": "Boleros Románticos",
     "categoria": "romantico",
     "ritmo": "Bolero",
@@ -10,6 +9,7 @@
     "canciones": [
       {
         "nombre": "Mi Compañera",
+        "autor": "Trío Los Antares",
         "tono": "LA M",
         "letra": "Ven Mujer, regálame",
         "enlace": "",
@@ -17,6 +17,7 @@
       },
       {
         "nombre": "Triunfamos",
+        "autor": "Los Panchos",
         "tono": "la m",
         "letra": "Une tu voz a mi voz",
         "enlace": "",
@@ -24,6 +25,7 @@
       },
       {
         "nombre": "Contigo",
+        "autor": "Bebu Silvetti",
         "tono": "",
         "letra": "Tus besos se llegaron…",
         "enlace": "",
@@ -31,6 +33,7 @@
       },
       {
         "nombre": "El prendedor",
+        "autor": "Trío Colonial",
         "tono": "",
         "letra": "En el prendedor, de mi…",
         "enlace": "",
@@ -38,6 +41,7 @@
       },
       {
         "nombre": "Historia de un amor",
+        "autor": "Carlos Eleta Almarán",
         "tono": "",
         "letra": "Ya no estás más a mi lado",
         "enlace": "",
@@ -45,6 +49,7 @@
       },
       {
         "nombre": "Si tu me dices ven",
+        "autor": "Los Panchos",
         "tono": "",
         "letra": "Si tu me dices ven",
         "enlace": "",
@@ -52,6 +57,7 @@
       },
       {
         "nombre": "Novia mía",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "Esta novia mía, será",
         "enlace": "",
@@ -59,6 +65,7 @@
       },
       {
         "nombre": "Sabor a mí",
+        "autor": "Álvaro Carrillo",
         "tono": "",
         "letra": "Tanto tiempo disfrutamos…",
         "enlace": "",
@@ -66,6 +73,7 @@
       },
       {
         "nombre": "Piel Canela",
+        "autor": "Bobby Capó",
         "tono": "",
         "letra": "Que se quede el infinito",
         "enlace": "",
@@ -73,6 +81,7 @@
       },
       {
         "nombre": "Te lo pido por favor",
+        "autor": "Juan Gabriel",
         "tono": "DO M",
         "letra": "Donde esté, hoy y siempre",
         "enlace": "",
@@ -82,11 +91,10 @@
   },
   {
     "id": "setB",
-    "setLabel": "SET B",
     "genero": "Cumbia",
     "categoria": "bailable",
     "ritmo": "Cumbia",
-    "tempo": "100",
+    "tempo": "105",
     "enlaceSetCompleto": "",
     "canciones": [
       {
@@ -99,6 +107,7 @@
       },
       {
         "nombre": "Ayayay",
+        "autor": "Don Medardo y sus Player's",
         "tono": "fa m",
         "letra": "Soltera, porque todos",
         "enlace": "",
@@ -106,6 +115,7 @@
       },
       {
         "nombre": "Para mirar las estrellas",
+        "autor": "Versión Trío",
         "tono": "",
         "letra": "Para mirar las estrellas",
         "enlace": "",
@@ -113,7 +123,7 @@
       },
       {
         "nombre": "El Aguajal",
-        "autor": "Medardo y sus Players",
+        "autor": "Los Palmeras",
         "tono": "mi m",
         "letra": "Si se marchó sin un adiós",
         "enlace": "",
@@ -121,6 +131,7 @@
       },
       {
         "nombre": "Cumbia Chonera",
+        "autor": "Tercer Frío",
         "tono": "sol m",
         "letra": "",
         "enlace": "",
@@ -128,6 +139,7 @@
       },
       {
         "nombre": "Llorando se fue",
+        "autor": "Los Kjarkas",
         "tono": "si m",
         "letra": "Llorando se fue, la que…",
         "enlace": "",
@@ -135,13 +147,15 @@
       },
       {
         "nombre": "Cariñito",
+        "autor": "Los Hijos del Sol",
         "tono": "mi m",
         "letra": "Lloro, por quererte",
-        "enlace": "pdf/cumbias/cariñito.pdf",
+        "enlace": "pdf/loquito-por-ti.pdf",
         "bpm": null
       },
       {
         "nombre": "Cumbia del indio",
+        "autor": "Enrique Delgado",
         "tono": "sib m",
         "letra": "INSTRUMENTAL",
         "enlace": "",
@@ -149,13 +163,15 @@
       },
       {
         "nombre": "Casarme no",
+        "autor": "Tradicional",
         "tono": "re m",
         "letra": "Muchachita, vienes tú",
-        "enlace": "pdf/cumbias/casarme-no.pdf",
+        "enlace": "pdf/loquito-por-ti.pdf",
         "bpm": null
       },
       {
         "nombre": "La novia",
+        "autor": "Antonio Prieto",
         "tono": "",
         "letra": "Quise rezarle a dios",
         "enlace": "",
@@ -163,6 +179,7 @@
       },
       {
         "nombre": "Solo tú",
+        "autor": "Los Visconti",
         "tono": "",
         "letra": "Solo tú, bajo el cielo",
         "enlace": "",
@@ -170,16 +187,16 @@
       },
       {
         "nombre": "Loquito por ti",
+        "autor": "Armando Hernández",
         "tono": "sib m",
         "letra": "Loquito por ti, loco loco",
-        "enlace": "pdf/cumbias/loquito-por-ti.pdf",
+        "enlace": "pdf/loquito-por-ti.pdf",
         "bpm": null
       }
     ]
   },
   {
     "id": "setC",
-    "setLabel": "SET C",
     "genero": "Vals Romántico",
     "categoria": "romantico",
     "ritmo": "Vals",
@@ -188,6 +205,7 @@
     "canciones": [
       {
         "nombre": "Felicitaciones",
+        "autor": "Julio Jaramillo",
         "tono": "do m",
         "letra": "En el silencio, de esta noche",
         "enlace": "",
@@ -195,6 +213,7 @@
       },
       {
         "nombre": "Alma, Corazón y Vida",
+        "autor": "Luis Abanto Morales",
         "tono": "re m",
         "letra": "Recuerdo aquella vez",
         "enlace": "",
@@ -202,6 +221,7 @@
       },
       {
         "nombre": "Camino de la vida",
+        "autor": "Héctor Ochoa",
         "tono": "si m",
         "letra": "De prisa como el viento",
         "enlace": "",
@@ -209,6 +229,7 @@
       },
       {
         "nombre": "Cariño Bonito",
+        "autor": "Enrique Ibáñez",
         "tono": "re m",
         "letra": "Donde se duermen",
         "enlace": "",
@@ -216,6 +237,7 @@
       },
       {
         "nombre": "Alma mía",
+        "autor": "María Grever",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -223,6 +245,7 @@
       },
       {
         "nombre": "Propiedad Privada",
+        "autor": "Modesta Bor",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -230,6 +253,7 @@
       },
       {
         "nombre": "Guayaquileña",
+        "autor": "Carlos Rubira Infante",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -237,6 +261,7 @@
       },
       {
         "nombre": "Nuestro Secreto",
+        "autor": "Feliciano Brunetti",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -246,7 +271,6 @@
   },
   {
     "id": "setD",
-    "setLabel": "SET D",
     "genero": "Bombas",
     "categoria": "bailable",
     "ritmo": "Bomba",
@@ -255,6 +279,7 @@
     "canciones": [
       {
         "nombre": "Negrita Consentida",
+        "autor": "Tradicional",
         "tono": "la m",
         "letra": "Te conocí me enamoré",
         "enlace": "",
@@ -262,6 +287,7 @@
       },
       {
         "nombre": "El camaleón",
+        "autor": "Banda Pueblo",
         "tono": "si m",
         "letra": "El camaleón cambia de…",
         "enlace": "",
@@ -269,6 +295,7 @@
       },
       {
         "nombre": "Voy Buscando",
+        "autor": "Tradicional",
         "tono": "la m",
         "letra": "Voy Buscando, un cariño",
         "enlace": "",
@@ -276,6 +303,7 @@
       },
       {
         "nombre": "Sabor a Miel",
+        "autor": "Trío Juvenil",
         "tono": "mi m",
         "letra": "Eres tú lo que más quiero",
         "enlace": "",
@@ -283,6 +311,7 @@
       },
       {
         "nombre": "Cuerpo Sirena",
+        "autor": "Tradicional",
         "tono": "la m",
         "letra": "Solo una noche",
         "enlace": "",
@@ -290,6 +319,7 @@
       },
       {
         "nombre": "Palabras de amor",
+        "autor": "Tradicional",
         "tono": "la m",
         "letra": "Tan solo quiero escuchar",
         "enlace": "",
@@ -297,6 +327,7 @@
       },
       {
         "nombre": "Ven junto a mi lado",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -304,6 +335,7 @@
       },
       {
         "nombre": "El chuchaqui",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -311,6 +343,7 @@
       },
       {
         "nombre": "Hoy aprendí",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -318,6 +351,7 @@
       },
       {
         "nombre": "Jamás",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -325,6 +359,7 @@
       },
       {
         "nombre": "Sentado en un bar",
+        "autor": "Tradicional",
         "tono": "la m",
         "letra": "Sentado en un bar",
         "enlace": "",
@@ -332,6 +367,7 @@
       },
       {
         "nombre": "Carpuela",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -339,6 +375,7 @@
       },
       {
         "nombre": "Ay no se puede",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -346,6 +383,7 @@
       },
       {
         "nombre": "Chucta Carajo",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -355,7 +393,6 @@
   },
   {
     "id": "setE",
-    "setLabel": "SET E",
     "genero": "Valses Nostálgicos",
     "categoria": "romantico",
     "ritmo": "Vals",
@@ -364,6 +401,7 @@
     "canciones": [
       {
         "nombre": "Mala sombra",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -371,6 +409,7 @@
       },
       {
         "nombre": "Mal paso",
+        "autor": "Luis De Alva",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -378,6 +417,7 @@
       },
       {
         "nombre": "Ingratitud",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -385,6 +425,7 @@
       },
       {
         "nombre": "Regresa",
+        "autor": "A. Cabral",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -392,6 +433,7 @@
       },
       {
         "nombre": "Yo perdí el corazón",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -399,6 +441,7 @@
       },
       {
         "nombre": "Ódiame",
+        "autor": "F. Montes",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -406,6 +449,7 @@
       },
       {
         "nombre": "Cuando llora mi guitarra",
+        "autor": "A. Polo Campos",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -413,6 +457,7 @@
       },
       {
         "nombre": "Ayer y hoy",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -420,6 +465,7 @@
       },
       {
         "nombre": "Engañada",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -427,6 +473,7 @@
       },
       {
         "nombre": "Fatalidad",
+        "autor": "L. R. Caravedo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -434,6 +481,7 @@
       },
       {
         "nombre": "Extravío",
+        "autor": "Pedro Espelfín",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -441,6 +489,7 @@
       },
       {
         "nombre": "Reminiscencias",
+        "autor": "Luis Martínez Serrano",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -450,7 +499,6 @@
   },
   {
     "id": "setF",
-    "setLabel": "SET F",
     "genero": "San Juanitos",
     "categoria": "bailable",
     "ritmo": "San Juanito",
@@ -459,6 +507,7 @@
     "canciones": [
       {
         "nombre": "Corazón Equivocado",
+        "autor": "Tradicional",
         "tono": "mi m",
         "letra": "Escogió mi corazón",
         "enlace": "",
@@ -466,6 +515,7 @@
       },
       {
         "nombre": "Pobre corazón",
+        "autor": "Tradicional",
         "tono": "do m",
         "letra": "Pobre corazón, entristecido",
         "enlace": "",
@@ -473,6 +523,7 @@
       },
       {
         "nombre": "Cantando como yo canto",
+        "autor": "Tradicional",
         "tono": "do m",
         "letra": "Cantando como yo canto",
         "enlace": "",
@@ -480,6 +531,7 @@
       },
       {
         "nombre": "El transporte",
+        "autor": "Tradicional",
         "tono": "do m",
         "letra": "ANIMAR",
         "enlace": "",
@@ -487,6 +539,7 @@
       },
       {
         "nombre": "Ñucta llacta",
+        "autor": "Tradicional",
         "tono": "la m",
         "letra": "Longuita, te quiero yo a vos",
         "enlace": "",
@@ -494,6 +547,7 @@
       },
       {
         "nombre": "El travoltoso",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -501,6 +555,7 @@
       },
       {
         "nombre": "Mariposita",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -508,6 +563,7 @@
       },
       {
         "nombre": "Se acabó quien te quería",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -515,6 +571,7 @@
       },
       {
         "nombre": "El Chinchinal",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -522,6 +579,7 @@
       },
       {
         "nombre": "Alitas Quebradas",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -531,7 +589,6 @@
   },
   {
     "id": "setG",
-    "setLabel": "SET G",
     "genero": "Pasillos",
     "categoria": "romantico",
     "ritmo": "Pasillo",
@@ -540,6 +597,7 @@
     "canciones": [
       {
         "nombre": "El Aguacate",
+        "autor": "César Guerrero Tamayo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -547,6 +605,7 @@
       },
       {
         "nombre": "Angél de Luz",
+        "autor": "Enrique Espín Yépez",
         "tono": "la m",
         "letra": "Ángel de luz, de aromas",
         "enlace": "",
@@ -554,6 +613,7 @@
       },
       {
         "nombre": "17 años",
+        "autor": "Enrique Ibáñez Mora",
         "tono": "mi m",
         "letra": "Yo vivía triste",
         "enlace": "",
@@ -561,6 +621,7 @@
       },
       {
         "nombre": "Cantares del Alma",
+        "autor": "Trinear",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -568,6 +629,7 @@
       },
       {
         "nombre": "Te quiero, Te quiero",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -575,6 +637,7 @@
       },
       {
         "nombre": "Tú y yo",
+        "autor": "Carlos Brito",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -582,6 +645,7 @@
       },
       {
         "nombre": "Acuérdate de mí",
+        "autor": "Luis A. Calvo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -589,6 +653,7 @@
       },
       {
         "nombre": "El alma en los labios",
+        "autor": "Medardo Ángel Silva",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -596,6 +661,7 @@
       },
       {
         "nombre": "Faltándome tú",
+        "autor": "Manuel Jiménez",
         "tono": "",
         "letra": "Faltándome tu, mi vida",
         "enlace": "",
@@ -603,6 +669,7 @@
       },
       {
         "nombre": "Por ti llorando",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -610,6 +677,7 @@
       },
       {
         "nombre": "Amor, Dolor",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -617,6 +685,7 @@
       },
       {
         "nombre": "Sombras",
+        "autor": "Rosendo Ruiz Quezada",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -624,6 +693,7 @@
       },
       {
         "nombre": "Sendas Distintas",
+        "autor": "Gonzalo Vera Santos",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -631,6 +701,7 @@
       },
       {
         "nombre": "Tu Duda y la Mía",
+        "autor": "Oswaldo Guayasamín",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -640,7 +711,6 @@
   },
   {
     "id": "setH",
-    "setLabel": "SET H",
     "genero": "Pasacalles",
     "categoria": "bailable",
     "ritmo": "Pasacalle",
@@ -650,7 +720,6 @@
   },
   {
     "id": "setI",
-    "setLabel": "SET I",
     "genero": "Bolero Rockolero",
     "categoria": "romantico",
     "ritmo": "Bolero",
@@ -660,7 +729,6 @@
   },
   {
     "id": "setL_albazos",
-    "setLabel": "SET L",
     "genero": "Albazos / Banda",
     "categoria": "bailable",
     "ritmo": "Albazo",
@@ -670,7 +738,6 @@
   },
   {
     "id": "setK",
-    "setLabel": "SET K",
     "genero": "Boleros Julio Jaramillo",
     "categoria": "romantico",
     "ritmo": "Bolero",
@@ -679,6 +746,7 @@
     "canciones": [
       {
         "nombre": "Azabache",
+        "autor": "Enrique Frías",
         "tono": "",
         "letra": "En el negro azabache",
         "enlace": "",
@@ -686,6 +754,7 @@
       },
       {
         "nombre": "Niégalo todo",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "No le digas a nadie",
         "enlace": "",
@@ -693,6 +762,7 @@
       },
       {
         "nombre": "Cinco centavitos",
+        "autor": "Héctor Ulloa",
         "tono": "",
         "letra": "Quiero comprarle a la vida",
         "enlace": "",
@@ -700,6 +770,7 @@
       },
       {
         "nombre": "Nuestro Juramento",
+        "autor": "Benito de Jesús",
         "tono": "",
         "letra": "No puedo verte triste",
         "enlace": "",
@@ -707,6 +778,7 @@
       },
       {
         "nombre": "Rondando tu esquina",
+        "autor": "Abelardo Monterrosa",
         "tono": "",
         "letra": "Esta noche tengo ganas de",
         "enlace": "",
@@ -714,6 +786,7 @@
       },
       {
         "nombre": "El Pintor",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -723,7 +796,6 @@
   },
   {
     "id": "setL_paseitos",
-    "setLabel": "SET L",
     "genero": "Paseítos",
     "categoria": "bailable",
     "ritmo": "Paseíto",
@@ -733,7 +805,6 @@
   },
   {
     "id": "setM",
-    "setLabel": "SET M",
     "genero": "Boleros Románticos II",
     "categoria": "romantico",
     "ritmo": "Bolero",
@@ -742,6 +813,7 @@
     "canciones": [
       {
         "nombre": "Mi Compañera",
+        "autor": "Trío Los Antares",
         "tono": "LA M",
         "letra": "Ven Mujer, regálame",
         "enlace": "",
@@ -749,6 +821,7 @@
       },
       {
         "nombre": "Triunfamos",
+        "autor": "Los Panchos",
         "tono": "la m",
         "letra": "Une tu voz a mi voz",
         "enlace": "",
@@ -756,6 +829,7 @@
       },
       {
         "nombre": "Contigo",
+        "autor": "Bebu Silvetti",
         "tono": "",
         "letra": "Tus besos se llegaron…",
         "enlace": "",
@@ -763,6 +837,7 @@
       },
       {
         "nombre": "El prendedor",
+        "autor": "Trío Colonial",
         "tono": "",
         "letra": "En el prendedor, de mi…",
         "enlace": "",
@@ -770,6 +845,7 @@
       },
       {
         "nombre": "Historia de un amor",
+        "autor": "Carlos Eleta Almarán",
         "tono": "",
         "letra": "Ya no estás más a mi lado",
         "enlace": "",
@@ -777,6 +853,7 @@
       },
       {
         "nombre": "Si tu me dices ven",
+        "autor": "Los Panchos",
         "tono": "",
         "letra": "Si tu me dices ven",
         "enlace": "",
@@ -784,6 +861,7 @@
       },
       {
         "nombre": "Novia mía",
+        "autor": "Julio Jaramillo",
         "tono": "",
         "letra": "Esta novia mía, será",
         "enlace": "",
@@ -791,6 +869,7 @@
       },
       {
         "nombre": "Sin ti",
+        "autor": "Pepe Guízar",
         "tono": "",
         "letra": "Sin ti, no podré vivir jamás",
         "enlace": "",
@@ -798,6 +877,7 @@
       },
       {
         "nombre": "Sabor a mí",
+        "autor": "Álvaro Carrillo",
         "tono": "",
         "letra": "Tanto tiempo disfrutamos…",
         "enlace": "",
@@ -805,6 +885,7 @@
       },
       {
         "nombre": "Piel Canela",
+        "autor": "Bobby Capó",
         "tono": "",
         "letra": "Que se quede el infinito",
         "enlace": "",
@@ -812,6 +893,7 @@
       },
       {
         "nombre": "El reloj",
+        "autor": "Roberto Cantoral",
         "tono": "",
         "letra": "Reloj, no marques la hora",
         "enlace": "",
@@ -819,6 +901,7 @@
       },
       {
         "nombre": "Te lo pido por favor",
+        "autor": "Juan Gabriel",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -828,7 +911,6 @@
   },
   {
     "id": "setL_cumbias2",
-    "setLabel": "SET L",
     "genero": "Cumbias 2",
     "categoria": "bailable",
     "ritmo": "Cumbia",
@@ -837,6 +919,7 @@
     "canciones": [
       {
         "nombre": "La revancha",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -844,6 +927,7 @@
       },
       {
         "nombre": "Paso fino",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -851,6 +935,7 @@
       },
       {
         "nombre": "Amor de mis amores",
+        "autor": "Agustín Lara",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -858,6 +943,7 @@
       },
       {
         "nombre": "Te vas",
+        "autor": "Américo",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -865,6 +951,7 @@
       },
       {
         "nombre": "Me enamore de ti, y que",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "",
         "enlace": "",
@@ -872,6 +959,7 @@
       },
       {
         "nombre": "Desesperado",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "Desesperado, desesperado",
         "enlace": "",
@@ -879,6 +967,7 @@
       },
       {
         "nombre": "El Arbolito",
+        "autor": "Enrique Delgado",
         "tono": "",
         "letra": "Viento tú que te alejas",
         "enlace": "",
@@ -886,6 +975,7 @@
       },
       {
         "nombre": "Baile de la cumbia",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "Busco una chica como tú",
         "enlace": "",
@@ -893,6 +983,7 @@
       },
       {
         "nombre": "Ojitos Hechiceros",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "Esos dos ojitos lindos",
         "enlace": "",
@@ -900,21 +991,12 @@
       },
       {
         "nombre": "Flor de un día",
+        "autor": "Tradicional",
         "tono": "",
         "letra": "No ya no quiero quererte más",
         "enlace": "",
         "bpm": null
       }
     ]
-  },
-  {
-    "id": "set_1786773530095",
-    "setLabel": "SET 15",
-    "genero": "Cumbias lentas",
-    "categoria": "bailable",
-    "ritmo": "01 CUMBIAS",
-    "tempo": "105",
-    "enlaceSetCompleto": "",
-    "canciones": []
   }
 ]
