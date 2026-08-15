@@ -1,5 +1,5 @@
 /* =========================================================
-   LÓGICA PRINCIPAL Y GENERADOR SECUENCIAL MULTISET CORREGIDO
+   LÓGICA PRINCIPAL Y GENERADOR DE PDF CON MARCA DE AGUA
    ========================================================= */
 const LS_KEY = "herederosRepertorioData_v3";
 const EDIT_PASSWORD = "herederos";
@@ -224,7 +224,7 @@ function getGenero(id){ return DATA.find(g=>g.id===id); }
 function escapeAttr(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
 function slug(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""); }
 
-// Asistente visual robusto con promesa limpia por cada set
+// Asistente visual paso a paso
 function mostrarAsistenteDescarga(texto, textoBoton){
   return new Promise((resolve) => {
     let modal = document.getElementById('modalDescarga');
@@ -679,10 +679,7 @@ function renderCart(){
 }
 
 /* =========================================================
-   GENERADOR SECUENCIAL MULTISET CORREGIDO Y BLINDADO
-   ========================================================= */
-/* =========================================================
-   GENERADOR DE PDF GENERAL CON LOGO DE FONDO (MARCA DE AGUA)
+   GENERADOR SECUENCIAL DE PDF CON MARCA DE AGUA (LOGO DE FONDO)
    ========================================================= */
 async function generarPDF(){
   const { jsPDF } = window.jspdf;
@@ -692,22 +689,20 @@ async function generarPDF(){
   const pageH = doc.internal.pageSize.getHeight();
   const pageW = doc.internal.pageSize.getWidth();
 
-  // Intentar estampar el logo corporativo centrado de fondo (marca de agua)
+  // Intentar agregar el logo como marca de agua en el fondo del PDF general
   try {
     const imgData = await getBase64ImageFromURL("logo.png");
     if(imgData){
-      const imgSize = 320; // Tamaño del logo en el fondo del PDF
+      const imgSize = 340;
       const posX = (pageW - imgSize) / 2;
       const posY = (pageH - imgSize) / 2;
-      
-      // Añadir imagen con baja opacidad simulada o directa
       doc.addImage(imgData, 'PNG', posX, posY, imgSize, imgSize, undefined, 'FAST');
     }
   } catch(e) {
-    console.log("Marca de agua omitida o logo no encontrado en la ruta raíz.");
+    console.log("Marca de agua omitida en PDF general.");
   }
 
-  // Títulos formales y nítidos en Times New Roman
+  // Títulos formales en Times New Roman
   doc.setFont("times","bold"); doc.setFontSize(22); doc.setTextColor(20, 20, 20);
   doc.text("Repertorio Trío \"Los Herederos\"", marginX, y);
   y += 24;
@@ -755,10 +750,10 @@ async function generarPDF(){
     y += 12;
   }
 
-  // Descargar el PDF del Repertorio General
+  // 1. Descargar Repertorio General
   doc.save("Repertorio-Los-Herederos-Seleccion.pdf");
 
-  // Procesar cada set secuencialmente con el asistente flotante
+  // 2. Procesar cada set paso a paso con el asistente flotante
   if(window.PDFLib && setsConMerge.length > 0){
     for(let i = 0; i < setsConMerge.length; i++){
       const item = setsConMerge[i];
@@ -782,7 +777,7 @@ async function generarPDF(){
   location.reload();
 }
 
-// Función auxiliar de conversión segura del logo para el PDF
+// Función auxiliar segura para estampar la marca de agua en el PDF general
 function getBase64ImageFromURL(url) {
   return new Promise((resolve, reject) => {
     const img = new Image();
@@ -792,44 +787,13 @@ function getBase64ImageFromURL(url) {
       canvas.width = img.width;
       canvas.height = img.height;
       const ctx = canvas.getContext("2d");
-      // Opcional: ajustar transparencia global si se desea más tenue en el canvas
-      ctx.globalAlpha = 0.12; 
+      ctx.globalAlpha = 0.12; // Transparencia sutil de marca de agua
       ctx.drawImage(img, 0, 0);
       resolve(canvas.toDataURL("image/png"));
     };
     img.onerror = error => reject(error);
     img.src = url;
   });
-}
-
-  // Descargar el PDF del Repertorio General
-  doc.save("Repertorio-Los-Herederos-Seleccion.pdf");
-
-  // 2. Procesar cada set con un asistente flotante secuencial individual
-  if(window.PDFLib && setsConMerge.length > 0){
-    for(let i = 0; i < setsConMerge.length; i++){
-      const item = setsConMerge[i];
-      const esUltimoSet = (i === setsConMerge.length - 1);
-
-      // Muestra el cuadro flotante y espera obligatoriamente el clic del usuario para continuar
-      await mostrarAsistenteDescarga(
-        `📥 Set listo para descargar: <b>${item.g.genero}</b><br><span style="font-size:12px; color:#666;">(Set ${i + 1} de ${setsConMerge.length})</span>`,
-        esUltimoSet ? "✔ Descargar este último set" : "Siguiente descarga ➔"
-      );
-
-      // Fusionar y descargar el PDF del set actual
-      await mergeSetPDF(item.g, item.nombres);
-    }
-  }
-
-  // Mensaje final cuando se descargaron todos los sets seleccionados
-  await mostrarAsistenteDescarga(
-    "🎉 ¡Todas las descargas se completaron con éxito!<br><span style='font-size:12px;'>La página se reiniciará para armar un nuevo repertorio.</span>",
-    "Reiniciar ahora"
-  );
-  
-  state.seleccion = {};
-  location.reload();
 }
 
 async function mergeSetPDF(g, nombres){
@@ -842,10 +806,7 @@ async function mergeSetPDF(g, nombres){
     if(!c || !c.enlace) continue;
     try{
       const res = await fetch(c.enlace);
-      if(!res.ok){
-        console.warn(`No se encontró el archivo PDF: ${c.enlace}`);
-        continue;
-      }
+      if(!res.ok) continue;
       const bytes = await res.arrayBuffer();
       const src = await PDFDocument.load(bytes, {ignoreEncryption:true});
       const pages = await merged.copyPages(src, src.getPageIndices());
@@ -867,8 +828,6 @@ async function mergeSetPDF(g, nombres){
     a.click(); 
     a.remove();
     URL.revokeObjectURL(url);
-  } else {
-    alert(`Aviso: No se encontraron los archivos PDF físicos en la ruta especificada para el set de "${g.genero}". Verifica que las canciones seleccionadas tengan sus enlaces apuntando correctamente a la carpeta pdf/.`);
   }
 }
 
