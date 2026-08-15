@@ -681,14 +681,33 @@ function renderCart(){
 /* =========================================================
    GENERADOR SECUENCIAL MULTISET CORREGIDO Y BLINDADO
    ========================================================= */
+/* =========================================================
+   GENERADOR DE PDF GENERAL CON LOGO DE FONDO (MARCA DE AGUA)
+   ========================================================= */
 async function generarPDF(){
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit:"pt", format:"a4" });
   const marginX = 48;
   let y = 60;
   const pageH = doc.internal.pageSize.getHeight();
+  const pageW = doc.internal.pageSize.getWidth();
 
-  // 1. Construir el PDF del repertorio general
+  // Intentar estampar el logo corporativo centrado de fondo (marca de agua)
+  try {
+    const imgData = await getBase64ImageFromURL("logo.png");
+    if(imgData){
+      const imgSize = 320; // Tamaño del logo en el fondo del PDF
+      const posX = (pageW - imgSize) / 2;
+      const posY = (pageH - imgSize) / 2;
+      
+      // Añadir imagen con baja opacidad simulada o directa
+      doc.addImage(imgData, 'PNG', posX, posY, imgSize, imgSize, undefined, 'FAST');
+    }
+  } catch(e) {
+    console.log("Marca de agua omitida o logo no encontrado en la ruta raíz.");
+  }
+
+  // Títulos formales y nítidos en Times New Roman
   doc.setFont("times","bold"); doc.setFontSize(22); doc.setTextColor(20, 20, 20);
   doc.text("Repertorio Trío \"Los Herederos\"", marginX, y);
   y += 24;
@@ -712,7 +731,6 @@ async function generarPDF(){
     if(metaLine){ doc.text(metaLine, marginX, y); y += 15; }
     y += 4;
 
-    // Filtrar canciones seleccionadas que tengan un enlace físico de PDF cargado
     const candidatas = nombres.filter(n=>{
       const c = g.canciones.find(x=>x.nombre===n);
       return c && c.enlace && c.enlace.trim().length > 0;
@@ -736,6 +754,53 @@ async function generarPDF(){
     });
     y += 12;
   }
+
+  // Descargar el PDF del Repertorio General
+  doc.save("Repertorio-Los-Herederos-Seleccion.pdf");
+
+  // Procesar cada set secuencialmente con el asistente flotante
+  if(window.PDFLib && setsConMerge.length > 0){
+    for(let i = 0; i < setsConMerge.length; i++){
+      const item = setsConMerge[i];
+      const esUltimoSet = (i === setsConMerge.length - 1);
+
+      await mostrarAsistenteDescarga(
+        `📥 Set listo para descargar: <b>${item.g.genero}</b><br><span style="font-size:12px; color:#666;">(Set ${i + 1} de ${setsConMerge.length})</span>`,
+        esUltimoSet ? "✔ Descargar este último set" : "Siguiente descarga ➔"
+      );
+
+      await mergeSetPDF(item.g, item.nombres);
+    }
+  }
+
+  await mostrarAsistenteDescarga(
+    "🎉 ¡Todas las descargas se completaron con éxito!<br><span style='font-size:12px;'>La página se reiniciará para armar un nuevo repertorio.</span>",
+    "Reiniciar ahora"
+  );
+  
+  state.seleccion = {};
+  location.reload();
+}
+
+// Función auxiliar de conversión segura del logo para el PDF
+function getBase64ImageFromURL(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "Anonymous";
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext("2d");
+      // Opcional: ajustar transparencia global si se desea más tenue en el canvas
+      ctx.globalAlpha = 0.12; 
+      ctx.drawImage(img, 0, 0);
+      resolve(canvas.toDataURL("image/png"));
+    };
+    img.onerror = error => reject(error);
+    img.src = url;
+  });
+}
 
   // Descargar el PDF del Repertorio General
   doc.save("Repertorio-Los-Herederos-Seleccion.pdf");
