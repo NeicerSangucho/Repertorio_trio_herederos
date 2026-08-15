@@ -94,12 +94,12 @@
     "genero": "Cumbia",
     "categoria": "bailable",
     "ritmo": "Cumbia",
-    "tempo": "105",
+    "tempo": "100",
     "enlaceSetCompleto": "",
     "canciones": [
       {
         "nombre": "Amapola",
-        "autor": "Papaya Dada",
+        "autor": "Fulanito",
         "tono": "fa m",
         "letra": "Baby, baila sola",
         "enlace": "",
@@ -911,10 +911,10 @@
   },
   {
     "id": "setL_cumbias2",
-    "genero": "Cumbias 2",
+    "genero": "Cumbias lentas",
     "categoria": "bailable",
     "ritmo": "Cumbia",
-    "tempo": "102",
+    "tempo": "100",
     "enlaceSetCompleto": "",
     "canciones": [
       {
