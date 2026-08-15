@@ -1,5 +1,5 @@
 /* =========================================================
-   LÓGICA PRINCIPAL DE LA APLICACIÓN
+   LÓGICA PRINCIPAL Y GENERADOR SECUENCIAL MULTISET CORREGIDO
    ========================================================= */
 const LS_KEY = "herederosRepertorioData_v3";
 const EDIT_PASSWORD = "herederos";
@@ -44,12 +44,12 @@ const REPERTORIO_DEFAULT = [
       {nombre:"El Aguajal", tono:"mi m", letra:"Si se marchó sin un adiós", enlace:"", bpm:null},
       {nombre:"Cumbia Chonera", tono:"sol m", letra:"", enlace:"", bpm:null},
       {nombre:"Llorando se fue", tono:"si m", letra:"Llorando se fue, la que…", enlace:"", bpm:null},
-      {nombre:"Cariñito", tono:"mi m", letra:"Lloro, por quererte", enlace:"", bpm:null},
+      {nombre:"Cariñito", tono:"mi m", letra:"Lloro, por quererte", enlace:"pdf/loquito-por-ti.pdf", bpm:null},
       {nombre:"Cumbia del indio", tono:"sib m", letra:"INSTRUMENTAL", enlace:"", bpm:null},
-      {nombre:"Casarme no", tono:"", letra:"Muchachita, vienes tú", enlace:"", bpm:null},
+      {nombre:"Casarme no", tono:"re m", letra:"Muchachita, vienes tú", enlace:"pdf/loquito-por-ti.pdf", bpm:null},
       {nombre:"La novia", tono:"", letra:"Quise rezarle a dios", enlace:"", bpm:null},
       {nombre:"Solo tú", tono:"", letra:"Solo tú, bajo el cielo", enlace:"", bpm:null},
-      {nombre:"Loquito por ti", tono:"sib m", letra:"Loquito por ti, loco loco", enlace:"", bpm:null}
+      {nombre:"Loquito por ti", tono:"sib m", letra:"Loquito por ti, loco loco", enlace:"pdf/loquito-por-ti.pdf", bpm:null}
     ]
   },
   {
@@ -223,6 +223,28 @@ function totalSeleccion(){ return Object.values(state.seleccion).reduce((a,arr)=
 function getGenero(id){ return DATA.find(g=>g.id===id); }
 function escapeAttr(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
 function slug(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""); }
+
+// Asistente visual robusto con promesa limpia por cada set
+function mostrarAsistenteDescarga(texto, textoBoton){
+  return new Promise((resolve) => {
+    let modal = document.getElementById('modalDescarga');
+    if(!modal){
+      modal = document.createElement('div');
+      modal.id = 'modalDescarga';
+      modal.style.cssText = "position:fixed; bottom:30px; right:30px; background:var(--paper); color:var(--ink); padding:20px 24px; border-radius:14px; box-shadow:0 10px 35px rgba(0,0,0,0.6); z-index:9999; font-family:'Space Grotesk', sans-serif; display:flex; flex-direction:column; gap:12px; max-width:340px; border:2px solid var(--amber);";
+      document.body.appendChild(modal);
+    }
+    modal.innerHTML = `
+      <div style="font-weight:600; font-size:14px; line-height:1.4;">${texto}</div>
+      <button id="btnSigDescarga" class="btn btn-primary btn-sm" style="width:100%; text-align:center;">${textoBoton}</button>
+    `;
+    modal.style.display = 'flex';
+    document.getElementById('btnSigDescarga').onclick = ()=>{
+      modal.style.display = 'none';
+      resolve();
+    };
+  });
+}
 
 function toast(msg){
   const t = document.getElementById('toast');
@@ -654,6 +676,135 @@ function renderCart(){
   aside.appendChild(resetBtn);
 
   return aside;
+}
+
+/* =========================================================
+   GENERADOR SECUENCIAL MULTISET CORREGIDO Y BLINDADO
+   ========================================================= */
+async function generarPDF(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit:"pt", format:"a4" });
+  const marginX = 48;
+  let y = 60;
+  const pageH = doc.internal.pageSize.getHeight();
+
+  // 1. Construir el PDF del repertorio general
+  doc.setFont("times","bold"); doc.setFontSize(22); doc.setTextColor(20, 20, 20);
+  doc.text("Repertorio Trío \"Los Herederos\"", marginX, y);
+  y += 24;
+  doc.setFont("times","normal"); doc.setFontSize(11); doc.setTextColor(60, 60, 60);
+  doc.text("Selección personalizada · " + new Date().toLocaleDateString('es-EC', {year:'numeric', month:'long', day:'numeric'}), marginX, y);
+  y += 30;
+
+  const setsConMerge = [];
+
+  for (const [setId, nombres] of Object.entries(state.seleccion)){
+    if(!nombres.length) continue;
+    const g = getGenero(setId);
+    if(y > pageH - 100){ doc.addPage(); y = 60; }
+
+    doc.setFont("times","bold"); doc.setFontSize(15); doc.setTextColor(20, 20, 20);
+    doc.text(`${g.genero} (${g.setLabel})`, marginX, y);
+    y += 18;
+
+    doc.setFont("times","italic"); doc.setFontSize(10); doc.setTextColor(80, 80, 80);
+    const metaLine = [g.ritmo, g.tempo ? g.tempo+" BPM":""].filter(Boolean).join("  ·  ");
+    if(metaLine){ doc.text(metaLine, marginX, y); y += 15; }
+    y += 4;
+
+    // Filtrar canciones seleccionadas que tengan un enlace físico de PDF cargado
+    const candidatas = nombres.filter(n=>{
+      const c = g.canciones.find(x=>x.nombre===n);
+      return c && c.enlace && c.enlace.trim().length > 0;
+    });
+    
+    if(candidatas.length > 0){
+      setsConMerge.push({ g, nombres: candidatas });
+    }
+
+    nombres.forEach((nombre, i)=>{
+      if(y > pageH - 60){ doc.addPage(); y = 60; }
+      const cancion = g.canciones.find(c=>c.nombre===nombre);
+      const tono = cancion && cancion.tono ? cancion.tono : "—";
+      const bpmVal = cancion && cancion.bpm !== null ? cancion.bpm : (g.tempo || "-");
+      
+      doc.setFont("times","bold"); doc.setFontSize(11); doc.setTextColor(30, 30, 30);
+      doc.text(`${i+1}. ${nombre}`, marginX+10, y);
+      doc.setFont("times","normal"); doc.setFontSize(10); doc.setTextColor(70, 70, 70);
+      doc.text(`Tono: ${tono}  ·  BPM: ${bpmVal}`, marginX+280, y);
+      y += 18;
+    });
+    y += 12;
+  }
+
+  // Descargar el PDF del Repertorio General
+  doc.save("Repertorio-Los-Herederos-Seleccion.pdf");
+
+  // 2. Procesar cada set con un asistente flotante secuencial individual
+  if(window.PDFLib && setsConMerge.length > 0){
+    for(let i = 0; i < setsConMerge.length; i++){
+      const item = setsConMerge[i];
+      const esUltimoSet = (i === setsConMerge.length - 1);
+
+      // Muestra el cuadro flotante y espera obligatoriamente el clic del usuario para continuar
+      await mostrarAsistenteDescarga(
+        `📥 Set listo para descargar: <b>${item.g.genero}</b><br><span style="font-size:12px; color:#666;">(Set ${i + 1} de ${setsConMerge.length})</span>`,
+        esUltimoSet ? "✔ Descargar este último set" : "Siguiente descarga ➔"
+      );
+
+      // Fusionar y descargar el PDF del set actual
+      await mergeSetPDF(item.g, item.nombres);
+    }
+  }
+
+  // Mensaje final cuando se descargaron todos los sets seleccionados
+  await mostrarAsistenteDescarga(
+    "🎉 ¡Todas las descargas se completaron con éxito!<br><span style='font-size:12px;'>La página se reiniciará para armar un nuevo repertorio.</span>",
+    "Reiniciar ahora"
+  );
+  
+  state.seleccion = {};
+  location.reload();
+}
+
+async function mergeSetPDF(g, nombres){
+  const { PDFDocument } = window.PDFLib;
+  const merged = await PDFDocument.create();
+  let ok = 0;
+  
+  for(const nombre of nombres){
+    const c = g.canciones.find(x=>x.nombre===nombre);
+    if(!c || !c.enlace) continue;
+    try{
+      const res = await fetch(c.enlace);
+      if(!res.ok){
+        console.warn(`No se encontró el archivo PDF: ${c.enlace}`);
+        continue;
+      }
+      const bytes = await res.arrayBuffer();
+      const src = await PDFDocument.load(bytes, {ignoreEncryption:true});
+      const pages = await merged.copyPages(src, src.getPageIndices());
+      pages.forEach(p=>merged.addPage(p));
+      ok++;
+    }catch(e){
+      console.error(`Error al fusionar PDF de "${nombre}":`, e);
+    }
+  }
+  
+  if(ok > 0){
+    const bytes = await merged.save();
+    const blob = new Blob([bytes], {type:"application/pdf"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; 
+    a.download = `${slug(g.genero)}-letras-acordes.pdf`;
+    document.body.appendChild(a); 
+    a.click(); 
+    a.remove();
+    URL.revokeObjectURL(url);
+  } else {
+    alert(`Aviso: No se encontraron los archivos PDF físicos en la ruta especificada para el set de "${g.genero}". Verifica que las canciones seleccionadas tengan sus enlaces apuntando correctamente a la carpeta pdf/.`);
+  }
 }
 
 (async function init(){
