@@ -25,7 +25,7 @@
       },
       {
         "nombre": "Contigo",
-        "autor": "Bebu Silvetti",
+        "autor": "Los Panchos",
         "tono": "",
         "letra": "Tus besos se llegaron…",
         "enlace": "",
@@ -33,15 +33,15 @@
       },
       {
         "nombre": "El prendedor",
-        "autor": "Trío Colonial",
+        "autor": "Trío Los Antares",
         "tono": "",
-        "letra": "En el prendedor, de mi…",
+        "letra": "En el prendedor, de mi corazón",
         "enlace": "",
         "bpm": null
       },
       {
         "nombre": "Historia de un amor",
-        "autor": "Carlos Eleta Almarán",
+        "autor": "Los Panchos",
         "tono": "",
         "letra": "Ya no estás más a mi lado",
         "enlace": "",
@@ -57,7 +57,7 @@
       },
       {
         "nombre": "Novia mía",
-        "autor": "Julio Jaramillo",
+        "autor": "Los Tres Reyes",
         "tono": "",
         "letra": "Esta novia mía, será",
         "enlace": "",
@@ -65,7 +65,7 @@
       },
       {
         "nombre": "Sabor a mí",
-        "autor": "Álvaro Carrillo",
+        "autor": "Los Panchos",
         "tono": "",
         "letra": "Tanto tiempo disfrutamos…",
         "enlace": "",
@@ -84,6 +84,54 @@
         "autor": "Juan Gabriel",
         "tono": "DO M",
         "letra": "Donde esté, hoy y siempre",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Sin ti",
+        "autor": "Pepe Guízar",
+        "tono": "",
+        "letra": "Sin ti, no podré vivir jamás",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "El reloj",
+        "autor": "Roberto Cantoral",
+        "tono": "",
+        "letra": "Reloj, no marques la hora",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Azabache",
+        "autor": "Enrique Frías",
+        "tono": "",
+        "letra": "En el negro azabache",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Niégalo todo",
+        "autor": "Julio Jaramillo",
+        "tono": "",
+        "letra": "No le digas a nadie",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Nuestro Juramento",
+        "autor": "Benito de Jesús",
+        "tono": "",
+        "letra": "No puedo verte triste",
+        "enlace": "",
+        "bpm": null
+      },
+      {
+        "nombre": "Rondando tu esquina",
+        "autor": "Abelardo Monterrosa",
+        "tono": "",
+        "letra": "Esta noche tengo ganas de",
         "enlace": "",
         "bpm": null
       }
@@ -150,7 +198,7 @@
         "autor": "Los Hijos del Sol",
         "tono": "mi m",
         "letra": "Lloro, por quererte",
-        "enlace": "pdf/loquito-por-ti.pdf",
+        "enlace": "pdf/cumbia/carinito.pdf",
         "bpm": null
       },
       {
@@ -166,7 +214,7 @@
         "autor": "Tradicional",
         "tono": "re m",
         "letra": "Muchachita, vienes tú",
-        "enlace": "pdf/loquito-por-ti.pdf",
+        "enlace": "",
         "bpm": null
       },
       {
@@ -190,7 +238,7 @@
         "autor": "Armando Hernández",
         "tono": "sib m",
         "letra": "Loquito por ti, loco loco",
-        "enlace": "pdf/loquito-por-ti.pdf",
+        "enlace": "pdf/cumbia/loquito-por-ti.pdf",
         "bpm": null
       }
     ]
@@ -393,7 +441,7 @@
   },
   {
     "id": "setE",
-    "genero": "Valses Nostálgicos",
+    "genero": "Vals Nostálgico",
     "categoria": "romantico",
     "ritmo": "Vals",
     "tempo": "100",
@@ -720,7 +768,7 @@
   },
   {
     "id": "setI",
-    "genero": "Bolero Rockolero",
+    "genero": "Boleros Rockoleros",
     "categoria": "romantico",
     "ritmo": "Bolero",
     "tempo": "95",
@@ -737,64 +785,6 @@
     "canciones": []
   },
   {
-    "id": "setK",
-    "genero": "Boleros Julio Jaramillo",
-    "categoria": "romantico",
-    "ritmo": "Bolero",
-    "tempo": "96",
-    "enlaceSetCompleto": "",
-    "canciones": [
-      {
-        "nombre": "Azabache",
-        "autor": "Enrique Frías",
-        "tono": "",
-        "letra": "En el negro azabache",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Niégalo todo",
-        "autor": "Julio Jaramillo",
-        "tono": "",
-        "letra": "No le digas a nadie",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Cinco centavitos",
-        "autor": "Héctor Ulloa",
-        "tono": "",
-        "letra": "Quiero comprarle a la vida",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Nuestro Juramento",
-        "autor": "Benito de Jesús",
-        "tono": "",
-        "letra": "No puedo verte triste",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Rondando tu esquina",
-        "autor": "Abelardo Monterrosa",
-        "tono": "",
-        "letra": "Esta noche tengo ganas de",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "El Pintor",
-        "autor": "Tradicional",
-        "tono": "",
-        "letra": "",
-        "enlace": "",
-        "bpm": null
-      }
-    ]
-  },
-  {
     "id": "setL_paseitos",
     "genero": "Paseítos",
     "categoria": "bailable",
@@ -804,117 +794,11 @@
     "canciones": []
   },
   {
-    "id": "setM",
-    "genero": "Boleros Románticos II",
-    "categoria": "romantico",
-    "ritmo": "Bolero",
-    "tempo": "98",
-    "enlaceSetCompleto": "",
-    "canciones": [
-      {
-        "nombre": "Mi Compañera",
-        "autor": "Trío Los Antares",
-        "tono": "LA M",
-        "letra": "Ven Mujer, regálame",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Triunfamos",
-        "autor": "Los Panchos",
-        "tono": "la m",
-        "letra": "Une tu voz a mi voz",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Contigo",
-        "autor": "Bebu Silvetti",
-        "tono": "",
-        "letra": "Tus besos se llegaron…",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "El prendedor",
-        "autor": "Trío Colonial",
-        "tono": "",
-        "letra": "En el prendedor, de mi…",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Historia de un amor",
-        "autor": "Carlos Eleta Almarán",
-        "tono": "",
-        "letra": "Ya no estás más a mi lado",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Si tu me dices ven",
-        "autor": "Los Panchos",
-        "tono": "",
-        "letra": "Si tu me dices ven",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Novia mía",
-        "autor": "Julio Jaramillo",
-        "tono": "",
-        "letra": "Esta novia mía, será",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Sin ti",
-        "autor": "Pepe Guízar",
-        "tono": "",
-        "letra": "Sin ti, no podré vivir jamás",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Sabor a mí",
-        "autor": "Álvaro Carrillo",
-        "tono": "",
-        "letra": "Tanto tiempo disfrutamos…",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Piel Canela",
-        "autor": "Bobby Capó",
-        "tono": "",
-        "letra": "Que se quede el infinito",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "El reloj",
-        "autor": "Roberto Cantoral",
-        "tono": "",
-        "letra": "Reloj, no marques la hora",
-        "enlace": "",
-        "bpm": null
-      },
-      {
-        "nombre": "Te lo pido por favor",
-        "autor": "Juan Gabriel",
-        "tono": "",
-        "letra": "",
-        "enlace": "",
-        "bpm": null
-      }
-    ]
-  },
-  {
     "id": "setL_cumbias2",
     "genero": "Cumbias lentas",
     "categoria": "bailable",
     "ritmo": "Cumbia",
-    "tempo": "100",
+    "tempo": "102",
     "enlaceSetCompleto": "",
     "canciones": [
       {
@@ -994,6 +878,42 @@
         "autor": "Tradicional",
         "tono": "",
         "letra": "No ya no quiero quererte más",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "set_nostalgicos",
+    "genero": "Boleros Nostálgicos",
+    "categoria": "romantico",
+    "ritmo": "Bolero",
+    "tempo": "96",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "Cinco centavitos",
+        "autor": "Héctor Ulloa",
+        "tono": "",
+        "letra": "Quiero comprarle a la vida",
+        "enlace": "",
+        "bpm": null
+      }
+    ]
+  },
+  {
+    "id": "set_mama",
+    "genero": "Canciones para mamá",
+    "categoria": "romantico",
+    "ritmo": "Bolero",
+    "tempo": "96",
+    "enlaceSetCompleto": "",
+    "canciones": [
+      {
+        "nombre": "El Pintor",
+        "autor": "Julio Jaramillo",
+        "tono": "",
+        "letra": "Pintor que pintas paisajes",
         "enlace": "",
         "bpm": null
       }

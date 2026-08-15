@@ -1,7 +1,7 @@
 /* =========================================================
-   LÓGICA PRINCIPAL CON EDICIÓN DE NOMBRE DE GÉNERO Y AUTOR
+   LÓGICA PRINCIPAL (v13) - JSON EXTERNO COMO FUENTE ÚNICA
    ========================================================= */
-const LS_KEY = "herederosRepertorioData_v6";
+const LS_KEY = "herederosRepertorioData_v13";
 const EDIT_PASSWORD = "herederos";
 
 let DATA = null;
@@ -9,7 +9,8 @@ let editMode = false;
 
 let state = {
   screen:"categoria", categoria:null, generoId:null,
-  seleccion:{}, editingSong:null, editingSet:false
+  seleccion:{}, editingSong:null, editingSet:false,
+  filtroAutor:""
 };
 
 const CATEGORIAS = {
@@ -17,212 +18,65 @@ const CATEGORIAS = {
   romantico:{ label:"Romántico / Melancólico", desc:"Boleros, valses y pasillos para los momentos lentos." }
 };
 
-const REPERTORIO_DEFAULT = [
-  {
-    id:"setA", genero:"Boleros Románticos", categoria:"romantico",
-    ritmo:"Bolero", tempo:"97", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"Mi Compañera", autor:"Trío Los Antares", tono:"LA M", letra:"Ven Mujer, regálame", enlace:"", bpm:null},
-      {nombre:"Triunfamos", autor:"Los Panchos", tono:"la m", letra:"Une tu voz a mi voz", enlace:"", bpm:null},
-      {nombre:"Contigo", autor:"Bebu Silvetti", tono:"", letra:"Tus besos se llegaron…", enlace:"", bpm:null},
-      {nombre:"El prendedor", autor:"Trío Colonial", tono:"", letra:"En el prendedor, de mi…", enlace:"", bpm:null},
-      {nombre:"Historia de un amor", autor:"Carlos Eleta Almarán", tono:"", letra:"Ya no estás más a mi lado", enlace:"", bpm:null},
-      {nombre:"Si tu me dices ven", autor:"Los Panchos", tono:"", letra:"Si tu me dices ven", enlace:"", bpm:null},
-      {nombre:"Novia mía", autor:"Julio Jaramillo", tono:"", letra:"Esta novia mía, será", enlace:"", bpm:null},
-      {nombre:"Sabor a mí", autor:"Álvaro Carrillo", tono:"", letra:"Tanto tiempo disfrutamos…", enlace:"", bpm:null},
-      {nombre:"Piel Canela", autor:"Bobby Capó", tono:"", letra:"Que se quede el infinito", enlace:"", bpm:null},
-      {nombre:"Te lo pido por favor", autor:"Juan Gabriel", tono:"DO M", letra:"Donde esté, hoy y siempre", enlace:"", bpm:null}
-    ]
-  },
-  {
-    id:"setB", genero:"Cumbia", categoria:"bailable",
-    ritmo:"Cumbia", tempo:"100", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"Amapola", autor:"Fulanito", tono:"fa m", letra:"Baby, baila sola", enlace:"", bpm:null},
-      {nombre:"Ayayay", autor:"Don Medardo y sus Player's", tono:"fa m", letra:"Soltera, porque todos", enlace:"", bpm:null},
-      {nombre:"Para mirar las estrellas", autor:"Versión Trío", tono:"", letra:"Para mirar las estrellas", enlace:"", bpm:null},
-      {nombre:"El Aguajal", autor:"Los Palmeras", tono:"mi m", letra:"Si se marchó sin un adiós", enlace:"", bpm:null},
-      {nombre:"Cumbia Chonera", autor:"Tercer Frío", tono:"sol m", letra:"", enlace:"", bpm:null},
-      {nombre:"Llorando se fue", autor:"Los Kjarkas", tono:"si m", letra:"Llorando se fue, la que…", enlace:"", bpm:null},
-      {nombre:"Cariñito", autor:"Los Hijos del Sol", tono:"mi m", letra:"Lloro, por quererte", enlace:"pdf/loquito-por-ti.pdf", bpm:null},
-      {nombre:"Cumbia del indio", autor:"Enrique Delgado", tono:"sib m", letra:"INSTRUMENTAL", enlace:"", bpm:null},
-      {nombre:"Casarme no", autor:"Tradicional", tono:"re m", letra:"Muchachita, vienes tú", enlace:"pdf/loquito-por-ti.pdf", bpm:null},
-      {nombre:"La novia", autor:"Antonio Prieto", tono:"", letra:"Quise rezarle a dios", enlace:"", bpm:null},
-      {nombre:"Solo tú", autor:"Los Visconti", tono:"", letra:"Solo tú, bajo el cielo", enlace:"", bpm:null},
-      {nombre:"Loquito por ti", autor:"Armando Hernández", tono:"sib m", letra:"Loquito por ti, loco loco", enlace:"pdf/loquito-por-ti.pdf", bpm:null}
-    ]
-  },
-  {
-    id:"setC", genero:"Vals Romántico", categoria:"romantico",
-    ritmo:"Vals", tempo:"139", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"Felicitaciones", autor:"Julio Jaramillo", tono:"do m", letra:"En el silencio, de esta noche", enlace:"", bpm:null},
-      {nombre:"Alma, Corazón y Vida", autor:"Luis Abanto Morales", tono:"re m", letra:"Recuerdo aquella vez", enlace:"", bpm:null},
-      {nombre:"Camino de la vida", autor:"Héctor Ochoa", tono:"si m", letra:"De prisa como el viento", enlace:"", bpm:null},
-      {nombre:"Cariño Bonito", autor:"Enrique Ibáñez", tono:"re m", letra:"Donde se duermen", enlace:"", bpm:null},
-      {nombre:"Alma mía", autor:"María Grever", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Propiedad Privada", autor:"Modesta Bor", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Guayaquileña", autor:"Carlos Rubira Infante", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Nuestro Secreto", autor:"Feliciano Brunetti", tono:"", letra:"", enlace:"", bpm:null}
-    ]
-  },
-  {
-    id:"setD", genero:"Bombas", categoria:"bailable",
-    ritmo:"Bomba", tempo:"115", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"Negrita Consentida", autor:"Tradicional", tono:"la m", letra:"Te conocí me enamoré", enlace:"", bpm:null},
-      {nombre:"El camaleón", autor:"Banda Pueblo", tono:"si m", letra:"El camaleón cambia de…", enlace:"", bpm:null},
-      {nombre:"Voy Buscando", autor:"Tradicional", tono:"la m", letra:"Voy Buscando, un cariño", enlace:"", bpm:null},
-      {nombre:"Sabor a Miel", autor:"Trío Juvenil", tono:"mi m", letra:"Eres tú lo que más quiero", enlace:"", bpm:null},
-      {nombre:"Cuerpo Sirena", autor:"Tradicional", tono:"la m", letra:"Solo una noche", enlace:"", bpm:null},
-      {nombre:"Palabras de amor", autor:"Tradicional", tono:"la m", letra:"Tan solo quiero escuchar", enlace:"", bpm:null},
-      {nombre:"Ven junto a mi lado", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"El chuchaqui", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Hoy aprendí", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Jamás", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Sentado en un bar", autor:"Tradicional", tono:"la m", letra:"Sentado en un bar", enlace:"", bpm:null},
-      {nombre:"Carpuela", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Ay no se puede", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Chucta Carajo", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null}
-    ]
-  },
-  {
-    id:"setE", genero:"Valses Nostálgicos", categoria:"romantico",
-    ritmo:"Vals", tempo:"100", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"Mala sombra", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Mal paso", autor:"Luis De Alva", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Ingratitud", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Regresa", autor:"A. Cabral", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Yo perdí el corazón", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Ódiame", autor:"F. Montes", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Cuando llora mi guitarra", autor:"A. Polo Campos", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Ayer y hoy", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Engañada", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Fatalidad", autor:"L. R. Caravedo", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Extravío", autor:"Pedro Espelfín", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Reminiscencias", autor:"Luis Martínez Serrano", tono:"", letra:"", enlace:"", bpm:null}
-    ]
-  },
-  {
-    id:"setF", genero:"San Juanitos", categoria:"bailable",
-    ritmo:"San Juanito", tempo:"114", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"Corazón Equivocado", autor:"Tradicional", tono:"mi m", letra:"Escogió mi corazón", enlace:"", bpm:null},
-      {nombre:"Pobre corazón", autor:"Tradicional", tono:"do m", letra:"Pobre corazón, entristecido", enlace:"", bpm:null},
-      {nombre:"Cantando como yo canto", autor:"Tradicional", tono:"do m", letra:"Cantando como yo canto", enlace:"", bpm:null},
-      {nombre:"El transporte", autor:"Tradicional", tono:"do m", letra:"ANIMAR", enlace:"", bpm:null},
-      {nombre:"Ñucta llacta", autor:"Tradicional", tono:"la m", letra:"Longuita, te quiero yo a vos", enlace:"", bpm:null},
-      {nombre:"El travoltoso", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Mariposita", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Se acabó quien te quería", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"El Chinchinal", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Alitas Quebradas", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null}
-    ]
-  },
-  {
-    id:"setG", genero:"Pasillos", categoria:"romantico",
-    ritmo:"Pasillo", tempo:"100", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"El Aguacate", autor:"César Guerrero Tamayo", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Angél de Luz", autor:"Enrique Espín Yépez", tono:"la m", letra:"Ángel de luz, de aromas", enlace:"", bpm:null},
-      {nombre:"17 años", autor:"Enrique Ibáñez Mora", tono:"mi m", letra:"Yo vivía triste", enlace:"", bpm:null},
-      {nombre:"Cantares del Alma", autor:"Trinear", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Te quiero, Te quiero", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Tú y yo", autor:"Carlos Brito", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Acuérdate de mí", autor:"Luis A. Calvo", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"El alma en los labios", autor:"Medardo Ángel Silva", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Faltándome tú", autor:"Manuel Jiménez", tono:"", letra:"Faltándome tu, mi vida", enlace:"", bpm:null},
-      {nombre:"Por ti llorando", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Amor, Dolor", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Sombras", autor:"Rosendo Ruiz Quezada", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Sendas Distintas", autor:"Gonzalo Vera Santos", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Tu Duda y la Mía", autor:"Oswaldo Guayasamín", tono:"", letra:"", enlace:"", bpm:null}
-    ]
-  },
-  {
-    id:"setH", genero:"Pasacalles", categoria:"bailable",
-    ritmo:"Pasacalle", tempo:"110", enlaceSetCompleto:"",
-    canciones:[]
-  },
-  {
-    id:"setI", genero:"Bolero Rockolero", categoria:"romantico",
-    ritmo:"Bolero", tempo:"95", enlaceSetCompleto:"",
-    canciones:[]
-  },
-  {
-    id:"setL_albazos", genero:"Albazos / Banda", categoria:"bailable",
-    ritmo:"Albazo", tempo:"120", enlaceSetCompleto:"",
-    canciones:[]
-  },
-  {
-    id:"setK", genero:"Boleros Julio Jaramillo", categoria:"romantico",
-    ritmo:"Bolero", tempo:"96", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"Azabache", autor:"Enrique Frías", tono:"", letra:"En el negro azabache", enlace:"", bpm:null},
-      {nombre:"Niégalo todo", autor:"Julio Jaramillo", tono:"", letra:"No le digas a nadie", enlace:"", bpm:null},
-      {nombre:"Cinco centavitos", autor:"Héctor Ulloa", tono:"", letra:"Quiero comprarle a la vida", enlace:"", bpm:null},
-      {nombre:"Nuestro Juramento", autor:"Benito de Jesús", tono:"", letra:"No puedo verte triste", enlace:"", bpm:null},
-      {nombre:"Rondando tu esquina", autor:"Abelardo Monterrosa", tono:"", letra:"Esta noche tengo ganas de", enlace:"", bpm:null},
-      {nombre:"El Pintor", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null}
-    ]
-  },
-  {
-    id:"setL_paseitos", genero:"Paseítos", categoria:"bailable",
-    ritmo:"Paseíto", tempo:"115", enlaceSetCompleto:"",
-    canciones:[]
-  },
-  {
-    id:"setM", genero:"Boleros Románticos II", categoria:"romantico",
-    ritmo:"Bolero", tempo:"98", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"Mi Compañera", autor:"Trío Los Antares", tono:"LA M", letra:"Ven Mujer, regálame", enlace:"", bpm:null},
-      {nombre:"Triunfamos", autor:"Los Panchos", tono:"la m", letra:"Une tu voz a mi voz", enlace:"", bpm:null},
-      {nombre:"Contigo", autor:"Bebu Silvetti", tono:"", letra:"Tus besos se llegaron…", enlace:"", bpm:null},
-      {nombre:"El prendedor", autor:"Trío Colonial", tono:"", letra:"En el prendedor, de mi…", enlace:"", bpm:null},
-      {nombre:"Historia de un amor", autor:"Carlos Eleta Almarán", tono:"", letra:"Ya no estás más a mi lado", enlace:"", bpm:null},
-      {nombre:"Si tu me dices ven", autor:"Los Panchos", tono:"", letra:"Si tu me dices ven", enlace:"", bpm:null},
-      {nombre:"Novia mía", autor:"Julio Jaramillo", tono:"", letra:"Esta novia mía, será", enlace:"", bpm:null},
-      {nombre:"Sin ti", autor:"Pepe Guízar", tono:"", letra:"Sin ti, no podré vivir jamás", enlace:"", bpm:null},
-      {nombre:"Sabor a mí", autor:"Álvaro Carrillo", tono:"", letra:"Tanto tiempo disfrutamos…", enlace:"", bpm:null},
-      {nombre:"Piel Canela", autor:"Bobby Capó", tono:"", letra:"Que se quede el infinito", enlace:"", bpm:null},
-      {nombre:"El reloj", autor:"Roberto Cantoral", tono:"", letra:"Reloj, no marques la hora", enlace:"", bpm:null},
-      {nombre:"Te lo pido por favor", autor:"Juan Gabriel", tono:"", letra:"", enlace:"", bpm:null}
-    ]
-  },
-  {
-    id:"setL_cumbias2", genero:"Cumbias 2", categoria:"bailable",
-    ritmo:"Cumbia", tempo:"102", enlaceSetCompleto:"",
-    canciones:[
-      {nombre:"La revancha", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Paso fino", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Amor de mis amores", autor:"Agustín Lara", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Te vas", autor:"Américo", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Me enamore de ti, y que", autor:"Tradicional", tono:"", letra:"", enlace:"", bpm:null},
-      {nombre:"Desesperado", autor:"Tradicional", tono:"", letra:"Desesperado, desesperado", enlace:"", bpm:null},
-      {nombre:"El Arbolito", autor:"Enrique Delgado", tono:"", letra:"Viento tú que te alejas", enlace:"", bpm:null},
-      {nombre:"Baile de la cumbia", autor:"Tradicional", tono:"", letra:"Busco una chica como tú", enlace:"", bpm:null},
-      {nombre:"Ojitos Hechiceros", autor:"Tradicional", tono:"", letra:"Esos dos ojitos lindos", enlace:"", bpm:null},
-      {nombre:"Flor de un día", autor:"Tradicional", tono:"", letra:"No ya no quiero quererte más", enlace:"", bpm:null}
-    ]
-  }
-];
-
+// Carga absoluta desde el archivo JSON externo sincronizado
 async function loadData(){
+  try {
+    const res = await fetch('repertorio-data.json', { cache: 'no-store' });
+    if (res.ok) {
+      const dataJson = await res.json();
+      localStorage.setItem(LS_KEY, JSON.stringify(dataJson));
+      return dataJson;
+    }
+  } catch (e) {
+    console.error("Error al cargar repertorio-data.json:", e);
+  }
+  
+  // Si falla el fetch por motivos locales de red, intenta usar el almacenamiento local
   const ls = localStorage.getItem(LS_KEY);
-  if(ls){ try{ return JSON.parse(ls); }catch(e){} }
-  try{
-    const res = await fetch('repertorio-data.json', {cache:'no-store'});
-    if(res.ok){ return await res.json(); }
-  }catch(e){}
-  return JSON.parse(JSON.stringify(REPERTORIO_DEFAULT));
+  if (ls) {
+    try { return JSON.parse(ls); } catch (e) {}
+  }
+  return [];
 }
-function saveLocal(){ localStorage.setItem(LS_KEY, JSON.stringify(DATA)); }
+
+function saveLocal(){ 
+  localStorage.setItem(LS_KEY, JSON.stringify(DATA)); 
+}
 
 function totalSeleccion(){ return Object.values(state.seleccion).reduce((a,arr)=>a+arr.length,0); }
-function getGenero(id){ return DATA.find(g=>g.id===id); }
+function getGenero(id){ return DATA ? DATA.find(g=>g.id===id) : null; }
 function escapeAttr(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
 function slug(s){ return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,""); }
+
+function generarRutaDefault(nombreGenero, nombreCancion) {
+  return `pdf/${slug(nombreGenero)}/${slug(nombreCancion)}.pdf`;
+}
+
+function obtenerAutoresDelGenero(g) {
+  const autoresSet = new Set();
+  if (g && g.canciones) {
+    g.canciones.forEach(c => {
+      if (c.autor && c.autor.trim().length > 0) {
+        autoresSet.add(c.autor.trim());
+      }
+    });
+  }
+  return Array.from(autoresSet).sort();
+}
+
+function obtenerTodosLosAutores() {
+  const autoresSet = new Set();
+  if (DATA) {
+    DATA.forEach(g => {
+      g.canciones.forEach(c => {
+        if (c.autor && c.autor.trim().length > 0) {
+          autoresSet.add(c.autor.trim());
+        }
+      });
+    });
+  }
+  return Array.from(autoresSet).sort();
+}
 
 function mostrarAsistenteDescarga(texto, textoBoton){
   return new Promise((resolve) => {
@@ -264,12 +118,12 @@ function toggleEditMode(){
   render();
 }
 
-function goCategoria(){ state.screen="categoria"; state.editingSong=null; state.editingSet=false; render(); }
-function goGeneros(cat){ state.categoria=cat; state.screen="generos"; state.editingSong=null; state.editingSet=false; render(); }
+function goCategoria(){ state.screen="categoria"; state.editingSong=null; state.editingSet=false; state.filtroAutor=""; render(); }
+function goGeneros(cat){ state.categoria=cat; state.screen="generos"; state.editingSong=null; state.editingSet=false; state.filtroAutor=""; render(); }
 function goCanciones(id){
   const g = getGenero(id);
   if(!g.canciones.length && !editMode){ toast("Este género aún no tiene canciones cargadas."); return; }
-  state.generoId=id; state.screen="canciones"; state.editingSong=null; state.editingSet=false; render();
+  state.generoId=id; state.screen="canciones"; state.editingSong=null; state.editingSet=false; state.filtroAutor=""; render();
 }
 
 function toggleCancion(setId, nombre){
@@ -282,6 +136,7 @@ function aceptarGenero(){ toast("Selección guardada · elige otro género"); go
 function quitarCancion(setId, nombre){ toggleCancion(setId, nombre); render(); }
 
 function render(){
+  if(!DATA) return;
   renderStepper();
   const main = document.getElementById('main');
   main.className = totalSeleccion()>0 ? "with-cart" : "";
@@ -304,14 +159,14 @@ function renderEditToolbar(){
     <div class="edit-toolbar-inner">
       <span class="mono" style="font-size:11px;color:var(--amber-light);">MODO EDICIÓN ACTIVO</span>
       <button class="btn btn-ghost btn-sm" id="btnExport">⬇ Exportar respaldo (JSON)</button>
-      <button class="btn btn-ghost btn-sm" id="btnDiscard">↺ Descartar borrador local</button>
+      <button class="btn btn-ghost btn-sm" id="btnReload">🔄 Recargar desde JSON</button>
     </div>`;
   document.getElementById('btnExport').onclick = exportarJSON;
-  document.getElementById('btnDiscard').onclick = ()=>{
-    if(confirm("Esto borra tus cambios locales. ¿Continuar?")){
-      localStorage.removeItem(LS_KEY);
-      location.reload();
-    }
+  document.getElementById('btnReload').onclick = async ()=>{
+    localStorage.removeItem(LS_KEY);
+    DATA = await loadData();
+    render();
+    toast("Datos recargados desde el JSON ✓");
   };
 }
 
@@ -406,7 +261,10 @@ function renderGeneros(){
 
   const grid = document.createElement('div');
   grid.className = "genre-grid";
-  DATA.filter(g=>g.categoria===state.categoria).forEach(g=>{
+  
+  const generosFiltrados = DATA.filter(g=>g.categoria===state.categoria).sort((a,b)=>a.genero.localeCompare(b.genero));
+
+  generosFiltrados.forEach(g=>{
     const chosen = (state.seleccion[g.id]||[]).length;
     const card = document.createElement('div');
     card.className = "genre-card" + (g.canciones.length===0 ? " empty" : "");
@@ -474,6 +332,25 @@ function renderCanciones(){
   `;
   wrap.appendChild(bar);
 
+  const autoresDelGenero = obtenerAutoresDelGenero(g);
+  const filterBar = document.createElement('div');
+  filterBar.style.cssText = "margin-bottom:18px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;";
+  filterBar.innerHTML = `
+    <label style="font-size:12px; color:var(--muted); display:flex; align-items:center; gap:8px; width:100%;">
+      Filtrar por autor de este género:
+      <select id="selectFiltroAutor" style="background:var(--bg-alt); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:6px 10px; color:var(--cream); font-family:'Space Grotesk', sans-serif; font-size:13px; flex:1;">
+        <option value="">-- Todos los autores de este género --</option>
+        ${autoresDelGenero.map(aut => `<option value="${escapeAttr(aut)}" ${state.filtroAutor === aut ? 'selected' : ''}>${escapeAttr(aut)}</option>`).join('')}
+      </select>
+    </label>
+  `;
+  wrap.appendChild(filterBar);
+
+  filterBar.querySelector('#selectFiltroAutor').onchange = (e) => {
+    state.filtroAutor = e.target.value;
+    render();
+  };
+
   if(!g.canciones.length && !editMode){
     const empty = document.createElement('div');
     empty.className = "empty-state";
@@ -482,18 +359,35 @@ function renderCanciones(){
     return wrap;
   }
 
+  let cancionesMostradas = [...g.canciones].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es', {sensitivity: 'base'}));
+
+  if(state.filtroAutor) {
+    cancionesMostradas = cancionesMostradas.filter(c => c.autor === state.filtroAutor);
+  }
+
   const seleccion = state.seleccion[g.id] || [];
-  g.canciones.forEach((c, idx)=>{
+
+  if(cancionesMostradas.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = "empty-state";
+    empty.innerHTML = `No se encontraron canciones con el autor seleccionado.`;
+    wrap.appendChild(empty);
+  }
+
+  cancionesMostradas.forEach((c)=>{
+    const idx = g.canciones.findIndex(item => item.nombre === c.nombre);
+
     if(editMode && state.editingSong && state.editingSong.setId===g.id && state.editingSong.idx===idx){
       wrap.appendChild(renderSongForm(g, idx));
       return;
     }
     const checked = seleccion.includes(c.nombre);
     const effectiveBpm = c.bpm !== null ? c.bpm : (parseInt(g.tempo) || "-");
+    const rutaFinal = (c.enlace && c.enlace.trim().length > 0) ? c.enlace : generarRutaDefault(g.genero, c.nombre);
+
     const row = document.createElement('div');
     row.className = "song-row";
     row.innerHTML = `
-      <div class="num mono">${idx+1}</div>
       <div class="checkbox ${checked? 'checked':''}"></div>
       <div class="info">
         <div class="name">${c.nombre}</div>
@@ -502,9 +396,7 @@ function renderCanciones(){
       </div>
       ${c.tono ? `<div class="tono">${c.tono}</div>` : `<div class="tono" style="opacity:.3;">—</div>`}
       <div class="bpm-badge mono">${effectiveBpm} BPM ${c.bpm===null?'(auto)':''}</div>
-      ${c.enlace
-        ? `<a class="link-ico" href="${c.enlace}" target="_blank" rel="noopener" onclick="event.stopPropagation()">letra ↗</a>`
-        : `<span class="link-ico missing">sin link</span>`}
+      <a class="link-ico" href="${rutaFinal}" target="_blank" rel="noopener" onclick="event.stopPropagation()">letra ↗</a>
       ${editMode ? `<button type="button" class="edit-ico">✎</button>` : ""}
     `;
     row.querySelector('.checkbox').onclick = ()=>{ toggleCancion(g.id, c.nombre); render(); };
@@ -544,21 +436,28 @@ function renderCanciones(){
 function renderSongForm(g, idx){
   const isNew = idx===null;
   const c = isNew ? {nombre:"",autor:"",tono:"",letra:"",enlace:"",bpm:null} : g.canciones[idx];
+  const listaAutores = obtenerTodosLosAutores();
+
   const box = document.createElement('div');
   box.className = "song-form";
   box.innerHTML = `
     <div class="form-title">${isNew? "Nueva canción" : "Editar canción"}</div>
     <label>Nombre<input type="text" class="f-nombre" value="${escapeAttr(c.nombre)}"></label>
-    <label>Autor / Versión<input type="text" class="f-autor" value="${escapeAttr(c.autor)}" placeholder="ej. Los Panchos"></label>
+    <label>Autor / Versión (Sugerencias):
+      <input type="text" class="f-autor" list="sugerenciasAutores" value="${escapeAttr(c.autor)}" placeholder="ej. Los Panchos">
+      <datalist id="sugerenciasAutores">
+        ${listaAutores.map(aut => `<option value="${escapeAttr(aut)}">`).join('')}
+      </datalist>
+    </label>
     <label>Tono<input type="text" class="f-tono" value="${escapeAttr(c.tono)}" placeholder="ej. la m"></label>
     <label>Primera línea / Referencia<input type="text" class="f-letra" value="${escapeAttr(c.letra)}"></label>
-    <label>Enlace o ruta del PDF (ej. pdf/cancion.pdf)<input type="text" class="f-enlace" value="${escapeAttr(c.enlace)}" placeholder="pdf/nombre.pdf"></label>
+    <label>Enlace personalizado o ruta manual (Déjalo vacío para usar la ruta automática)<input type="text" class="f-enlace" value="${escapeAttr(c.enlace)}" placeholder="pdf/genero/cancion.pdf"></label>
     <label class="bpm-row"><input type="checkbox" class="f-bpm-default" ${c.bpm===null ? "checked" : ""}> Usar BPM automático del género (${g.tempo||"100"})</label>
     <label class="f-bpm-wrap" style="${c.bpm!==null ? "":"display:none;"}">BPM personalizado<input type="number" class="f-bpm" value="${c.bpm!==null?c.bpm:''}" min="20" max="300"></label>
     <div class="form-actions">
       <button type="button" class="btn btn-primary btn-sm f-save">Guardar</button>
       <button type="button" class="btn btn-ghost btn-sm f-cancel">Cancelar</button>
-      ${!isNew? `<button type="button" class="btn btn-ghost btn-sm f-delete" style="color:#e08a9a;">Eliminar</button>`:""}
+      ${!isNew? `<button type="button" class="btn btn-ghost btn-sm f-delete" style="color:#e08a9a; ">Eliminar</button>`:""}
     </div>
   `;
   const chk = box.querySelector('.f-bpm-default');
@@ -588,6 +487,7 @@ function renderSongForm(g, idx){
     }
     saveLocal();
     state.editingSong = null;
+    state.filtroAutor = "";
     toast("Canción guardada ✓");
     render();
   };
@@ -681,9 +581,6 @@ function renderCart(){
   return aside;
 }
 
-/* =========================================================
-   GENERADOR DE PDF GENERAL LIMPIO (SIN SET A, SET B...)
-   ========================================================= */
 async function generarPDF(){
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit:"pt", format:"a4" });
@@ -716,7 +613,6 @@ async function generarPDF(){
     const g = getGenero(setId);
     if(y > pageH - 100){ doc.addPage(); y = 60; }
 
-    // Título limpio solo con el nombre del género
     doc.setFont("times","bold"); doc.setFontSize(15); doc.setTextColor(20, 20, 20);
     doc.text(`${g.genero}`, marginX, y);
     y += 18;
@@ -726,16 +622,19 @@ async function generarPDF(){
     if(metaLine){ doc.text(metaLine, marginX, y); y += 15; }
     y += 4;
 
-    const candidatas = nombres.filter(n=>{
-      const c = g.canciones.find(x=>x.nombre===n);
-      return c && c.enlace && c.enlace.trim().length > 0;
-    });
+    const nombresOrdenados = [...nombres].sort((a, b) => a.localeCompare(b, 'es', {sensitivity: 'base'}));
+
+    const candidatas = nombresOrdenados.map(n => {
+      const c = g.canciones.find(x => x.nombre === n);
+      if(!c) return null;
+      return (c.enlace && c.enlace.trim().length > 0) ? c.enlace : generarRutaDefault(g.genero, c.nombre);
+    }).filter(Boolean);
     
     if(candidatas.length > 0){
       setsConMerge.push({ g, nombres: candidatas });
     }
 
-    nombres.forEach((nombre, i)=>{
+    nombresOrdenados.forEach((nombre, i)=>{
       if(y > pageH - 60){ doc.addPage(); y = 60; }
       const cancion = g.canciones.find(c=>c.nombre===nombre);
       const tono = cancion && cancion.tono ? cancion.tono : "—";
@@ -794,16 +693,14 @@ function getBase64ImageFromURL(url) {
   });
 }
 
-async function mergeSetPDF(g, nombres){
+async function mergeSetPDF(g, rutasPdfs){
   const { PDFDocument } = window.PDFLib;
   const merged = await PDFDocument.create();
   let ok = 0;
   
-  for(const nombre of nombres){
-    const c = g.canciones.find(x=>x.nombre===nombre);
-    if(!c || !c.enlace) continue;
+  for(const ruta of rutasPdfs){
     try{
-      const res = await fetch(c.enlace);
+      const res = await fetch(ruta);
       if(!res.ok) continue;
       const bytes = await res.arrayBuffer();
       const src = await PDFDocument.load(bytes, {ignoreEncryption:true});
@@ -811,7 +708,7 @@ async function mergeSetPDF(g, nombres){
       pages.forEach(p=>merged.addPage(p));
       ok++;
     }catch(e){
-      console.error(`Error al fusionar PDF de "${nombre}":`, e);
+      console.error(`Error al fusionar PDF desde la ruta "${ruta}":`, e);
     }
   }
   
